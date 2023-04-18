@@ -1,0 +1,30 @@
+﻿1/User:
+  +table user Reader: tên đăng nhập, mật khẩu, gmail, giới tính, ngày đk 
+  + table user Labrarian: tên đăng nhập, mật khẩu, gmail, giới tính, ngày đk
+     
+2/quản lý kho Sách:
+     + Table Book:  mã kệ,mã loại sách, mã sách, tên sách, tác giả, nắm xuất bản, số lượng, giá bán, tình trạng
+
+2.1/ quản lý kệ sách:
+    + mã kệ, tên kệ, vị trí, mpô tả liệt kê
+
+3/quản lý mã Loại sách:
+     +table mã loai: mã loại, tên loại sách,
+
+4/  Bạn đọc đk thẻ thành viên:
+  + table Reader: Mã RFID, mã bạn đọc, tên bạn đọc, giới tính, cmnd, quê quán, nơi ở hiện tại, đơn vị công tác, email, sdt
+
+5/ Quản lý mươn sách:
+  + table mượn sách:
+        mã sách, mã bạn đọc, số lượng,ngày mượn, hạn trả, ngày trả, tên quản lý thư viện tt cho mượn, tinh trạng
+ 
+
+6/ Quản lý trả sách:
+    + table trả sách: ?
+
+7/ Quản lý phong thảo luận: 
+  + đk mượn: mã phòng, số phòng, giờ mượn, mục đích mượn, nguoi cho muon
+  + đk trả: mã phòng, giờ trả, tình trạng
+
+
+ 

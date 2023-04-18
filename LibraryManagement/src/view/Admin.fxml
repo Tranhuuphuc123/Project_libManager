@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Pant_Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
+   <children>
+      <AnchorPane fx:id="Pane_Home" layoutX="274.0" layoutY="-1.0" prefHeight="650.0" prefWidth="727.0" styleClass="maunen-PaneHome" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox layoutX="7.0" layoutY="7.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <ImageView fitHeight="336.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/Manager/BannerLibManager.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="340.0">
+               <children>
+                  <ImageView fitHeight="336.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true" x="-25.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../icon/Manager/Banner02.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <AnchorPane fx:id="Pane_Student" prefHeight="650.0" prefWidth="729.0" styleClass="maunen_paneStudent" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="subPane_Reader" layoutX="14.0" layoutY="40.0" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_Reader" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+               <children>
+                  <AnchorPane layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="84.0" layoutY="14.0" prefHeight="138.0" prefWidth="117.0" styleClass="image_Student" stylesheets="@../css/Style.css">
+                           <children>
+                              <ImageView fx:id="addImage_Reader" fitHeight="138.0" fitWidth="117.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" translateX="1.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXButton fx:id="btn_Import" layoutX="50.0" layoutY="156.0" onAction="#Import_ReaderTable" prefHeight="25.0" prefWidth="80.0" text="Import">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Import.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="140.0" layoutY="156.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="63.0" layoutY="200.0" text="ReaderID" />
+                        <TextField fx:id="field_ReaderID" layoutX="125.0" layoutY="196.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="46.0" layoutY="235.0" text="ReaderName" />
+                        <TextField fx:id="field_ReaderName" layoutX="124.0" layoutY="231.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="37.0" layoutY="305.0" text="Reader Gender" />
+                        <Label layoutX="46.0" layoutY="269.0" text="Date Of Birth" />
+                        <Label layoutX="67.0" layoutY="342.0" text="Address" />
+                        <TextField fx:id="field_Address" layoutX="125.0" layoutY="338.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="75.0" layoutY="371.0" text="Phone" />
+                        <TextField fx:id="field_Phone" layoutX="125.0" layoutY="367.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="37.0" layoutY="405.0" text="ReaderBarCode" />
+                        <TextField fx:id="field_Barcode" layoutX="124.0" layoutY="401.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <ComboBox fx:id="combobox_Gender" layoutX="126.0" layoutY="301.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <DatePicker fx:id="datePicker_Reader" layoutX="124.0" layoutY="265.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <JFXButton fx:id="btn_InsertReader" layoutX="12.0" layoutY="546.0" onAction="#handleInsertReader" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btn_UpdateReader" layoutX="103.0" layoutY="546.0" onAction="#handleUpdateReader" text="Update" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="46.0" layoutY="440.0" text="Date Create" />
+                        <DatePicker fx:id="datePicker_Reader2" layoutX="124.0" layoutY="436.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="62.0" layoutY="472.0" text="EndDate" />
+                        <DatePicker fx:id="datePicker_Reader3" layoutX="124.0" layoutY="468.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="39.0" layoutY="505.0" text="Pass" />
+                        <JFXButton fx:id="btn_ClearReader" layoutX="187.0" layoutY="546.0" onAction="#Clear_ReaderTable" prefHeight="33.0" prefWidth="89.0" text="Clear" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="160.0" layoutY="505.0" text="Status" />
+                        <ComboBox fx:id="combobox_Status" layoutX="193.0" layoutY="501.0" prefHeight="25.0" prefWidth="83.0" />
+                        <PasswordField fx:id="field_ReaderPass" layoutX="69.0" layoutY="501.0" prefHeight="25.0" prefWidth="83.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="340.0" layoutY="10.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField fx:id="field_SearchReader" layoutX="14.0" layoutY="31.0" onKeyReleased="#handleSearchReader_forField" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton fx:id="btn_SearchReader" contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" onAction="#handleSearchReader" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_reader" onMouseClicked="#selectItem_Reader" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                <columns>
+                                  <TableColumn fx:id="column_ID" prefWidth="40.0" resizable="false" text="ID" />
+                                  <TableColumn fx:id="column_Name" minWidth="80.0" text="Name" />
+                                    <TableColumn fx:id="column_Birth" resizable="false" text="DateBirth" />
+                                    <TableColumn fx:id="column_Gender" prefWidth="60.0" resizable="false" text="Gender" />
+                                    <TableColumn fx:id="column_Address" text="Address" />
+                                    <TableColumn fx:id="column_Phone" resizable="false" text="Phone" />
+                                    <TableColumn fx:id="column_Barcode" prefWidth="70.0" resizable="false" text="BarCode" />
+                                    <TableColumn fx:id="column_dateCreate" resizable="false" text="DateCreate" />
+                                    <TableColumn fx:id="column_endDate" resizable="false" text="EndDate" />
+                                    <TableColumn fx:id="column_pass" text="Pass" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <JFXButton fx:id="btn_Refesh" layoutX="491.0" layoutY="59.0" onAction="#Refesh_readerTable" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/refesh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btn_ShowAll" layoutX="401.0" layoutY="59.0" onAction="#handleShowAll" prefHeight="33.0" prefWidth="96.0" text="Show All">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Showall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_ReaderTable" layoutX="22.0" layoutY="2.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Reader Registration" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="Pane_BookManager" layoutX="275.0" prefHeight="650.0" prefWidth="729.0" styleClass="maunen_PaneBookManager" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="pane_Book" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_Reader" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fx:id="add_BookImg" fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <JFXButton fx:id="btn_ImportBook" layoutX="-28.0" layoutY="145.0" onAction="#Import_BookImg" prefHeight="25.0" prefWidth="80.0" text="Import">
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icon/Import.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="132.0" layoutY="159.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="12.0" layoutY="543.0" onAction="#handleInsertBooks" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="103.0" layoutY="543.0" onAction="#handleUpdateBooks" text="Update" AnchorPane.bottomAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="191.0" layoutY="543.0" onAction="#Clear_Books" text="Clean" AnchorPane.bottomAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="70.0" layoutY="198.0" text="BookID" />
+                        <TextField fx:id="field_BookID" layoutX="118.0" layoutY="194.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="58.0" layoutY="230.0" text="CatalogID" />
+                        <Label layoutX="60.0" layoutY="261.0" text="AuhtorID" />
+                        <ComboBox fx:id="combobox_Book_CatalogID" layoutX="118.0" layoutY="226.0" prefHeight="25.0" prefWidth="157.0" />
+                        <ComboBox fx:id="combobox_Book_AuthorID" layoutX="118.0" layoutY="257.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="73.0" layoutY="292.0" text="PubID" />
+                        <ComboBox fx:id="combobox_Book_PubID" layoutX="118.0" layoutY="288.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="58.0" layoutY="324.0" text="BookTitle" />
+                        <TextField fx:id="field_BookTitle" layoutX="118.0" layoutY="320.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="57.0" layoutY="356.0" text="BookPrice" />
+                        <TextField fx:id="field_BookPrice" layoutX="118.0" layoutY="352.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="38.0" layoutY="387.0" text="BookAmount" />
+                        <TextField fx:id="field_BookAmount" layoutX="118.0" layoutY="383.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="61.0" layoutY="419.0" text="BarCode" />
+                        <TextField fx:id="field_Book_BarCode" layoutX="118.0" layoutY="415.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="70.0" layoutY="452.0" text="EmpID" />
+                        <ComboBox fx:id="combobox_Book_EmpID" layoutX="118.0" layoutY="448.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label layoutX="44.0" layoutY="486.0" text="DateAdded" />
+                        <Label layoutX="70.0" layoutY="517.0" text="Activity" />
+                        <DatePicker fx:id="datePicker_Book" layoutX="119.0" layoutY="482.0" prefHeight="25.0" prefWidth="157.0" />
+                        <ComboBox fx:id="combobox_BookActivity" layoutX="119.0" layoutY="513.0" prefHeight="25.0" prefWidth="157.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="340.0" layoutY="10.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField fx:id="field_SearchBooks" layoutX="14.0" layoutY="31.0" onKeyReleased="#handleSearchBooks_forField" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton fx:id="btn_SearchBooks" contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" onAction="#handleSearchBooks" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_Books" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_Book" onMouseClicked="#selectItem_Books" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_BookID" prefWidth="50.0" resizable="false" text="BoID" />
+                                    <TableColumn fx:id="column_Book_CatID" prefWidth="50.0" resizable="false" text="CatD" />
+                                    <TableColumn fx:id="column_Book_AuID" prefWidth="50.0" resizable="false" text="AuID" />
+                                    <TableColumn fx:id="column_Book_PubID" prefWidth="50.0" resizable="false" text="PubID" />
+                                    <TableColumn fx:id="column_BookTitle" prefWidth="100.0" text="Title" />
+                                    <TableColumn fx:id="column_BookPrice" prefWidth="70.0" text="Price" />
+                                    <TableColumn fx:id="column_BookAmount" prefWidth="70.0" resizable="false" text="Amount" />
+                                    <TableColumn fx:id="column_BookBarcode" text="Barcode" />
+                                    <TableColumn fx:id="column_Book_EmpID" prefWidth="50.0" resizable="false" text="EmID" />
+                                    <TableColumn fx:id="column_BookDateAdd" text="DateAdd" />
+                                    <TableColumn fx:id="column_BookActivity" text="Activity" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <JFXButton fx:id="btn_ShowAllBook" layoutX="396.0" layoutY="53.0" onAction="#handleShowAll_btnBook" prefHeight="33.0" prefWidth="89.0" text="ShowAll" AnchorPane.rightAnchor="100.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Showall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_bookList" mnemonicParsing="false" onAction="#handleChangeBookManager" prefHeight="38.0" prefWidth="131.0" text="Book" />
+            <Button fx:id="btn_BookShelf" layoutX="131.0" mnemonicParsing="false" onAction="#handleChangeBookManager" prefHeight="38.0" prefWidth="131.0" text="Bookshelf" />
+            <AnchorPane fx:id="Pane_BookShelf" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_ReaderLogin" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="78.0" layoutY="151.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="94.0" layoutY="215.0" text="ID" />
+                        <TextField fx:id="field_bookShelfID" layoutX="126.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="81.0" layoutY="244.0" text="Tittle" />
+                        <TextField fx:id="field_bookShelfTittle" layoutX="126.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <JFXButton fx:id="btn_InsertBookShelf" layoutX="9.0" layoutY="535.0" onAction="#handleInsertBookShelf" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btn_UpdateBookShelf" layoutX="100.0" layoutY="535.0" onAction="#handleUpdateBookShelf" text="Update" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="188.0" layoutY="535.0" onAction="#Clear_BookShelf" text="Clear" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="318.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_BookShelf" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_bookShelf" onMouseClicked="#selectItem_bookShelf" prefHeight="600.0" prefWidth="720.0">
+                                 <columns>
+                                    <TableColumn fx:id="column_BookShelfID" prefWidth="167.0" resizable="false" text="BookShelfID" />
+                                    <TableColumn fx:id="column_BookShelfTittle" prefWidth="196.0" resizable="false" text="BookShelfTittle" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_Catalog" layoutX="262.0" mnemonicParsing="false" onAction="#handleChangeBookManager" prefHeight="38.0" prefWidth="131.0" text="Catalog" />
+            <Button fx:id="btn_Publisher" layoutX="393.0" mnemonicParsing="false" onAction="#handleChangeBookManager" prefHeight="40.0" prefWidth="131.0" text="Publisher" />
+            <Button fx:id="btn_Author" layoutX="524.0" mnemonicParsing="false" onAction="#handleChangeBookManager" prefHeight="40.0" prefWidth="131.0" text="Author" />
+            <AnchorPane fx:id="Pane_CatalogOfBooks" layoutX="15.0" layoutY="50.0" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_ReaderLogin" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="78.0" layoutY="157.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="50.0" layoutY="215.0" text="CatalogID" />
+                        <TextField fx:id="field_CatalogID" layoutX="126.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="76.0" layoutY="244.0" text="Title" />
+                        <TextField fx:id="field_CatalogTitle" layoutX="126.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="50.0" layoutY="275.0" text="BoShelfID" />
+                        <ComboBox fx:id="combobox_BoshelfID" layoutX="127.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="149.0" />
+                        <JFXButton layoutX="9.0" layoutY="535.0" onAction="#handleInsertCatalog" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="100.0" layoutY="535.0" text="Update" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="188.0" layoutY="535.0" onAction="#Clear_Catalog" text="Clean" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="318.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_Catalog" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_Catalog" onMouseClicked="#selectItem_Catalog" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_CatalogID" prefWidth="167.0" resizable="false" text="CatalogID" />
+                                    <TableColumn fx:id="column_CatalogTitle" prefWidth="167.0" resizable="false" text="CataLogTitle" />
+                                    <TableColumn fx:id="column_CatalogBoshelfID" prefWidth="167.0" resizable="false" text="BoshelfID" />
+                                 </columns></TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="Pane_Publisher" layoutX="15.0" layoutY="50.0" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_ReaderLogin" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="86.0" layoutY="157.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="52.0" layoutY="215.0" prefHeight="17.0" prefWidth="70.0" text="PublisherID" />
+                        <TextField fx:id="field_PubID" layoutX="126.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="40.0" layoutY="244.0" text="PublisherName" />
+                        <TextField fx:id="field_PubName" layoutX="126.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="56.0" layoutY="275.0" prefHeight="17.0" prefWidth="63.0" text="PubPhone" />
+                        <Label layoutX="66.0" layoutY="304.0" text="Address" />
+                        <JFXButton layoutX="9.0" layoutY="535.0" onAction="#handleInsert_Publisher" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="100.0" layoutY="535.0" onAction="#Update_Publisher" text="Update" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="188.0" layoutY="535.0" onAction="#Clear_Publisher" text="Clean" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <TextField fx:id="field_PubPhone" layoutX="128.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <TextField fx:id="field_PubAddress" layoutX="128.0" layoutY="300.0" nodeOrientation="LEFT_TO_RIGHT" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="318.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_Publisher" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_Publisher" onMouseClicked="#selectItem_Publisher" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_PubID" prefWidth="100.0" text="ID" />
+                                    <TableColumn fx:id="column_PubName" prefWidth="100.0" text="Name" />
+                                    <TableColumn fx:id="column_PubPhone" prefWidth="100.0" text="Phone" />
+                                    <TableColumn fx:id="column_PubAddress" prefWidth="250.0" text="Address" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="Pane_Author" layoutX="15.0" layoutY="50.0" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_ReaderLogin" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="86.0" layoutY="158.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="68.0" layoutY="215.0" text="AuthorID" />
+                        <TextField fx:id="field_AuhtorID" layoutX="126.0" layoutY="211.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="48.0" layoutY="244.0" text="AuthorName" />
+                        <TextField fx:id="field_AuthorName" layoutX="126.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="38.0" layoutY="275.0" text="AuthorSubject" />
+                        <Label layoutX="45.0" layoutY="304.0" text="Description" />
+                        <JFXButton layoutX="9.0" layoutY="535.0" onAction="#handleInsertAuthor" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="100.0" layoutY="535.0" onAction="#handleUpdateAuthor" text="Update" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="188.0" layoutY="535.0" onAction="#Clear_Author" text="Clean" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <TextField fx:id="field_AuthorSubject" layoutX="126.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <TextArea fx:id="textArea_Description" layoutX="127.0" layoutY="304.0" prefHeight="126.0" prefWidth="149.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="318.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_Author" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_Author" onMouseClicked="#selectItem_Author" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                <columns>
+                                   <TableColumn fx:id="column_AuthorID" prefWidth="100.0" text="ID" />
+                                    <TableColumn fx:id="column_AuthorName" prefWidth="131.0" text="NAME" />
+                                    <TableColumn fx:id="column_AuthorSubject" prefWidth="150.0" text="SUBJECT" />
+                                    <TableColumn fx:id="column_Description" minWidth="9.0" prefWidth="300.0" text="DESCRIPTION" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <AnchorPane id="header-background" fx:id="menu_Header" prefHeight="600.0" prefWidth="271.0" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="btn_HomePage" alignment="BASELINE_LEFT" layoutX="60.0" layoutY="112.0" onAction="#chuyenGiaoDien_Header" prefHeight="40.0" prefWidth="206.0" styleClass="JFX_Button" stylesheets="@../css/Style.css" text="HomePage" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font name="Constantia Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateY="-4.0">
+                     <image>
+                        <Image url="@../icon/Home.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.71" contrast="-0.52" hue="0.09" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_Student" alignment="BASELINE_LEFT" layoutX="49.0" layoutY="161.0" onAction="#chuyenGiaoDien_Header" prefHeight="33.0" prefWidth="217.0" styleClass="JFX_Button" stylesheets="@../css/Style.css" text="   Student Management">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateX="11.0" translateY="-4.0">
+                     <image>
+                        <Image url="@../icon/Student.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.71" contrast="-0.52" hue="0.09" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_Book" alignment="BASELINE_LEFT" layoutX="60.0" layoutY="204.0" onAction="#chuyenGiaoDien_Header" prefHeight="40.0" prefWidth="206.0" styleClass="JFX_Button" stylesheets="@../css/Style.css" text="Book Management">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-2.0">
+                     <image>
+                        <Image url="@../icon/Book.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.71" contrast="-0.52" hue="0.09" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_Borr_Return" alignment="BASELINE_LEFT" layoutX="60.0" layoutY="301.0" onAction="#chuyenGiaoDien_Header" prefHeight="33.0" prefWidth="206.0" styleClass="JFX_Button" stylesheets="@../css/Style.css" text="Borrowing/Returning ">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-4.0">
+                     <image>
+                        <Image url="@../icon/Return.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.71" contrast="-0.52" hue="0.09" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_DisscusionRoom" alignment="BASELINE_LEFT" layoutX="60.0" layoutY="250.0" onAction="#chuyenGiaoDien_Header" prefHeight="40.0" prefWidth="206.0" styleClass="JFX_Button" stylesheets="@../css/Style.css" text="Discussion Room">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-4.0">
+                     <image>
+                        <Image url="@../icon/Class.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.71" contrast="-0.52" hue="0.09" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane prefHeight="650.0" prefWidth="55.0" styleClass="menu_header" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton fx:id="btn_add" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="76.0" onAction="#chuyenGiaoDien_Header" prefHeight="40.0" prefWidth="46.0" styleClass="JFX_Button" stylesheets="@../css/Style.css">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
+                           <image>
+                              <Image url="@../icon/Plus.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.42" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="5.0" layoutY="556.0" prefHeight="40.0" prefWidth="46.0" styleClass="JFX_Button" stylesheets="@../css/Style.css">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="2.0">
+                           <image>
+                              <Image url="@../icon/Help.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="0.42" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_Option" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="596.0" onAction="#chuyenGiaoDien_Header" prefHeight="40.0" prefWidth="46.0" styleClass="JFX_Button" stylesheets="@../css/Style.css">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-1.0">
+                           <image>
+                              <Image url="@../icon/Menu.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" contrast="1.0" />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="65.0" fitWidth="200.0" layoutX="55.0" layoutY="2.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" translateX="60.0">
+               <image>
+                  <Image url="@../icon/Libr.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.19" contrast="-0.85" hue="0.68" saturation="-0.12" />
+               </effect>
+            </ImageView>
+            <AnchorPane fx:id="subMenu_Option" layoutX="49.0" layoutY="420.0" prefHeight="177.0" prefWidth="197.0" styleClass="mauNen_MenuNguon" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="14.0">
+               <children>
+                  <JFXButton fx:id="btn_Restart" alignment="BASELINE_LEFT" layoutX="87.0" layoutY="176.0" onAction="#LogoutAction" prefHeight="40.0" prefWidth="110.0" styleClass="font_chu" stylesheets="@../css/Style.css" text="Restart">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Restart.png" />
+                           </image>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9725490212440491" green="0.09803921729326248" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_LogOut" alignment="BASELINE_LEFT" layoutX="87.0" layoutY="130.0" onAction="#LogoutAction" prefHeight="40.0" prefWidth="110.0" styleClass="font_chu" stylesheets="@../css/Style.css" text="Log out">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Logout.png" />
+                           </image>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9725490212440491" green="0.09803921729326248" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_Login" alignment="BASELINE_LEFT" layoutX="87.0" layoutY="81.0" onAction="#LogoutAction" prefHeight="40.0" prefWidth="110.0" styleClass="font_chu" stylesheets="@../css/Style.css" text="Log in">
+                     <font>
+                        <Font name="Constantia Italic" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="34.0" opacity="0.97" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Login.png" />
+                           </image>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.9725490212440491" green="0.09803921729326248" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="subPane_Header" layoutX="-4.0" prefHeight="650.0" prefWidth="1000.0" styleClass="menu_Plus" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="Pane_LoginManager" prefHeight="650.0" styleClass="maunen_PaneLoginManager1" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="7.0" layoutY="-5.0" prefHeight="650.0" prefWidth="408.0" styleClass="maunen_menuLoginManager" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="176.0" text="Username">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="field_AdminUserName" layoutX="96.0" layoutY="169.0" prefHeight="41.0" prefWidth="217.0" promptText="Username" />
+                        <PasswordField fx:id="field_AdminPass" layoutX="96.0" layoutY="234.0" prefHeight="41.0" prefWidth="217.0" promptText="Pass" />
+                        <Label layoutX="11.0" layoutY="234.0" text="Password">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="50.0" prefHeight="40.0" prefWidth="197.0" text="ADMIN LOGIN" textAlignment="CENTER" textFill="#1424e0">
+                           <font>
+                              <Font size="28.0" />
+                           </font></Label>
+                        <Button fx:id="btn_adminLogin" layoutX="134.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAdminLogin" prefHeight="38.0" prefWidth="140.0" text="LOG IN" />
+                        <Label fx:id="label_AdminMessege" layoutX="102.0" layoutY="305.0" prefHeight="17.0" prefWidth="206.0" textFill="#21eb79" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Pane_LoginFrame" layoutX="408.0" layoutY="7.0" prefHeight="528.0" prefWidth="481.0" styleClass="Mau_Menutrai" stylesheets="@../css/Login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="408.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="300.0" fitWidth="323.0" layoutX="208.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="284.0">
+                           <image>
+                              <Image url="@../icon/Anhnen_Lib.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="268.0" layoutY="357.0" prefHeight="92.0" prefWidth="255.0" styleClass="chu_tieude" stylesheets="@../css/Login.css" text="Can Tho university" AnchorPane.leftAnchor="268.0" />
+                        <Label layoutX="165.0" layoutY="428.0" prefHeight="41.0" prefWidth="430.0" styleClass="chu_tieude" stylesheets="@../css/Login.css" text=" library management application" textAlignment="CENTER" AnchorPane.leftAnchor="180.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="header-menu-plus" fx:id="Pane_Admin" prefHeight="650.0" prefWidth="271.0" styleClass="maunen_PaneLoginManager2" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <JFXButton fx:id="btn_EmpPage" layoutX="217.0" layoutY="149.0" onAction="#handleAdminLogin" prefHeight="160.0" prefWidth="277.0" text="Employee" textAlignment="CENTER" textFill="#130fdb" textOverrun="CENTER_ELLIPSIS">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Manager/Employee2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <ImageInput />
+                     </effect></JFXButton>
+                  <JFXButton layoutX="542.0" layoutY="154.0" prefHeight="160.0" prefWidth="225.0" text="Chart" textFill="#233199">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Manager/Chart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_Depart" layoutX="832.0" layoutY="154.0" onAction="#handleAdminLogin" prefHeight="160.0" prefWidth="300.0" text="Department" textFill="#091397">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Manager/Details.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="226.0" layoutY="358.0" prefHeight="160.0" prefWidth="356.0" text="Mangager Books" textFill="#0d0db9">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Manager/Employee2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_AdminLogout" layoutX="7.0" layoutY="554.0" onAction="#handleAdminLogin" text="Log out" textFill="#d70b0b" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="btn_back" contentDisplay="GRAPHIC_ONLY" layoutX="6.0" onAction="#chuyenGiaoDien_Header" prefHeight="33.0" prefWidth="55.0" AnchorPane.leftAnchor="6.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="50.0" opacity="0.97" pickOnBounds="true" preserveRatio="true" translateX="-13.0">
+                     <image>
+                        <Image url="@../icon/Muiten.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.14" contrast="0.05" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Pane_BorrowReturn" layoutX="281.0" layoutY="10.0" prefHeight="650.0" prefWidth="729.0" styleClass="maunen_PaneBookManager" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_Reader" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutY="234.0" prefHeight="366.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fx:id="addImage_BR" fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="12.0" layoutY="325.0" onAction="#handleInsertBRBooks" prefHeight="33.0" prefWidth="89.0" text="Register" AnchorPane.bottomAnchor="4.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="103.0" layoutY="325.0" onAction="#handleUpdateBRBooks" text="Recall" AnchorPane.bottomAnchor="4.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Recall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="191.0" layoutY="325.0" onAction="#Clear_BRBooks" text="Clean" AnchorPane.bottomAnchor="4.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="49.0" layoutY="162.0" text="BookID" />
+                        <ComboBox fx:id="combobox_BRBookID" layoutX="90.0" layoutY="158.0" prefWidth="150.0" />
+                        <Label layoutX="39.0" layoutY="194.0" text="ReaderID" />
+                        <ComboBox fx:id="combobox_BRReaderID" layoutX="90.0" layoutY="190.0" prefWidth="150.0" />
+                        <Label layoutX="38.0" layoutY="228.0" text="StartDate" />
+                        <DatePicker fx:id="datepicker_BRStartdate" layoutX="91.0" layoutY="224.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="27.0" layoutY="261.0" text="ReturnDate" />
+                        <DatePicker fx:id="datepicker_BREndDate" layoutX="91.0" layoutY="257.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="49.0" layoutY="295.0" text="Status" />
+                        <ComboBox fx:id="combobox_BRStatus" layoutX="91.0" layoutY="291.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="340.0" layoutY="234.0" prefHeight="366.0" prefWidth="584.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="234.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_BRBooks" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_BR" onMouseClicked="#selectItem_BR" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_BRBookID" text="BookID" />
+                                    <TableColumn fx:id="column_BRReaderID" text="ReaderID" />
+                                    <TableColumn fx:id="column_BRStartDate" prefWidth="120.0" text="StartDate" />
+                                    <TableColumn fx:id="column_BREndDate" prefWidth="120.0" text="EndDate" />
+                                    <TableColumn fx:id="column_BRStatus" prefWidth="150.0" text="Status" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <JFXButton fx:id="btn_BRShowAll" layoutX="396.0" layoutY="53.0" onAction="#handleShowAll_BRBook" prefHeight="33.0" prefWidth="96.0" text="Show All" AnchorPane.rightAnchor="100.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Showall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="208.0" prefWidth="891.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="315.0" layoutY="5.0" prefHeight="25.0" prefWidth="176.0" styleClass="box_search" stylesheets="@../css/Style.css" AnchorPane.rightAnchor="400.0" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="491.0" layoutY="-1.0" prefHeight="27.0" prefWidth="49.0" text="Button" AnchorPane.rightAnchor="349.0">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="786.0" layoutY="2.0" onAction="#Refesh_BRBooks2" prefHeight="13.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="307.0" layoutY="38.0" prefHeight="160.0" prefWidth="574.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="307.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="38.0">
+                           <content>
+                              <TableView fx:id="table_BRBooks" onMouseClicked="#selectITem_BRBooks" prefHeight="182.0" prefWidth="584.0">
+                                <columns>
+                                  <TableColumn fx:id="column_BRBookName" prefWidth="578.0" text="Bookname" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Label layoutX="29.0" layoutY="47.0" text="BookID" />
+                        <TextField fx:id="field_BRBookID" layoutX="73.0" layoutY="43.0" />
+                        <Label layoutX="18.0" layoutY="78.0" text="BookTitle" />
+                        <TextField fx:id="field_BRBookTitle" layoutX="73.0" layoutY="74.0" />
+                        <Label layoutX="17.0" layoutY="110.0" text="BookPrice" />
+                        <TextField fx:id="field_BRBookPrice" layoutX="73.0" layoutY="106.0" />
+                        <Label layoutX="44.0" layoutY="141.0" text="Num" />
+                        <TextField fx:id="field_BRBookNum" layoutX="73.0" layoutY="137.0" />
+                        <JFXButton fx:id="btn_BRSelect" layoutX="82.0" layoutY="169.0" onAction="#handleSelect_BRBooks" prefHeight="33.0" prefWidth="110.0" text="Select" textAlignment="CENTER" textFill="#571af0">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/select.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="165.0" text="Register Borrow/Return" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Pane_DiscussionRoom" layoutX="281.0" layoutY="10.0" prefHeight="650.0" prefWidth="729.0" styleClass="maunen_PaneBookManager" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="pane_RegistersBorrowed" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_Reader" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="86.0" layoutY="157.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="-3.0" layoutY="543.0" onAction="#handleUpdate_RB" text="grant permission" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Capquyen.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="204.0" layoutY="543.0" onAction="#Clear_RB" text="Clean" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="64.0" layoutY="209.0" text="DisID" />
+                        <ComboBox fx:id="combobox_RB_DisID" layoutX="106.0" layoutY="205.0" prefWidth="150.0" />
+                        <Label layoutX="53.0" layoutY="246.0" text="ReaderID" />
+                        <ComboBox fx:id="combobox_RB_RID" layoutX="106.0" layoutY="242.0" prefWidth="150.0" />
+                        <JFXButton layoutX="129.0" layoutY="543.0" onAction="#handleUpdate_RB" text="Recall" AnchorPane.bottomAnchor="14.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Recall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="12.0" layoutY="287.0" text="BorrowedByShift" />
+                        <DatePicker fx:id="datepicker_RB_DisDate" layoutX="108.0" layoutY="323.0" prefHeight="25.0" prefWidth="148.0" />
+                        <Label layoutX="56.0" layoutY="327.0" text="DisDate" />
+                        <Label layoutX="46.0" layoutY="387.0" text="Description" />
+                        <TextArea fx:id="textArrea_RB_Description" layoutX="108.0" layoutY="358.0" prefHeight="92.0" prefWidth="150.0" />
+                        <ComboBox fx:id="combobox_RB_Activity" layoutX="108.0" layoutY="462.0" prefWidth="150.0" />
+                        <Label layoutX="57.0" layoutY="466.0" text="Activity" />
+                        <ComboBox fx:id="combobox_RBByShift" layoutX="108.0" layoutY="283.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="340.0" layoutY="10.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" onAction="#Refesh_RB" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_RegisterBorrowed" onMouseClicked="#selectItem_RB" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_RB_DisID" text="ID" />
+                                    <TableColumn fx:id="column_RB_RID" text="R.ID" />
+                                    <TableColumn fx:id="column_Timefrom" prefWidth="150.0" text="BorrowedByShift" />
+                                    <TableColumn fx:id="column_RB_DisDate" prefWidth="120.0" text="Date" />
+                                    <TableColumn fx:id="column_RB_Description" prefWidth="160.0" text="Description" />
+                                    <TableColumn fx:id="column_RB_Activity" prefWidth="140.0" text="Activity" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <JFXButton fx:id="btn_RBShowAll" layoutX="389.0" layoutY="53.0" onAction="#handleShowAll_RB" prefHeight="33.0" prefWidth="96.0" text="Show All" AnchorPane.rightAnchor="95.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Showall.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_RegisterRoom" mnemonicParsing="false" onAction="#handleDiscussionRoom" prefHeight="38.0" prefWidth="131.0" text="RegisterBorrow" />
+            <Button fx:id="btn_DiscussionRoom" layoutX="131.0" mnemonicParsing="false" onAction="#handleDiscussionRoom" prefHeight="38.0" prefWidth="131.0" text="DiscussionRoom" />
+            <AnchorPane fx:id="pane_DiscussionRoom" prefHeight="610.0" prefWidth="929.0" styleClass="maunen_subPane_ReaderLogin" stylesheets="@../css/Style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="137.0" prefWidth="118.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="118.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../icon/Anhnen_Lib.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <JFXButton layoutX="86.0" layoutY="158.0" prefHeight="31.0" prefWidth="118.0" text="Information">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/infomation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="66.0" layoutY="240.0" text="DisName" />
+                        <TextField fx:id="field_DisName" layoutX="124.0" layoutY="236.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="61.0" layoutY="269.0" text="Location" />
+                        <TextField fx:id="field_Location" layoutX="124.0" layoutY="265.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <Label layoutX="74.0" layoutY="300.0" text="Status" />
+                        <Label layoutX="58.0" layoutY="329.0" text="Desciption" />
+                        <JFXButton layoutX="9.0" layoutY="535.0" prefHeight="33.0" prefWidth="78.0" text="Insert" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Insert.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="100.0" layoutY="535.0" text="Update" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="188.0" layoutY="535.0" text="Clean" AnchorPane.bottomAnchor="25.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/clean.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label layoutX="86.0" layoutY="208.0" text="DisID" />
+                        <TextField fx:id="field_DisStatus" layoutX="124.0" layoutY="296.0" nodeOrientation="LEFT_TO_RIGHT" />
+                        <TextField fx:id="field_DisID" layoutX="122.0" layoutY="204.0" />
+                        <TextArea fx:id="text_Desciption" layoutX="124.0" layoutY="329.0" prefHeight="137.0" prefWidth="149.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="318.0" layoutY="14.0" prefHeight="200.0" prefWidth="289.0" styleClass="box" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="38.0" prefWidth="325.0" styleClass="box_search" stylesheets="@../css/Style.css" />
+                        <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="339.0" layoutY="31.0" prefHeight="38.0" prefWidth="49.0" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/search2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="493.0" layoutY="53.0" prefHeight="33.0" prefWidth="89.0" text="Refesh" AnchorPane.rightAnchor="10.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/Refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ScrollPane hmax="2.0" layoutX="7.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" styleClass="table_view" stylesheets="@../css/Style.css" vmax="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                           <content>
+                              <TableView fx:id="table_DiscussionRoom" onMouseClicked="#selectItem_DisRoom" prefHeight="600.0" prefWidth="720.0" styleClass="table_view" stylesheets="@../css/Style.css">
+                                 <columns>
+                                    <TableColumn fx:id="column_DisID" text="ID" />
+                                    <TableColumn fx:id="column_DisName" prefWidth="150.0" text="Name" />
+                                    <TableColumn fx:id="column_DisLocation" prefWidth="150.0" text="Location" />
+                                    <TableColumn fx:id="column_DisStatus" text="Status" />
+                                    <TableColumn fx:id="column_DisDsciption" prefWidth="250.0" text="Description" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <opaqueInsets>
+      <Insets top="2.0" />
+   </opaqueInsets>
+</AnchorPane>

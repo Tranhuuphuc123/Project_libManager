@@ -1,0 +1,16 @@
+// tạo Css ssinhj daạng cho trang Log in
+.Mau_Menutrai{
+   -fx-background-color: #426EB4;
+}
+.chu_tieude{
+  -fx-font-family: Arial;
+  -fx-Text-Fill: #ECECEC;
+  -fx-font-size: 30px;
+}
+
+// Màu thẻ Pane chứa các mục  login, log out..
+.mauPane{
+  -fx-background-color: #D7D7D7;
+}
+
+//=====================================================================================================================================

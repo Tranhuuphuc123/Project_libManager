@@ -1,0 +1,26 @@
+﻿*******************HƯỚNG DẪN CÁC LỆNH GIT PULL FILE THEO CHỦ ĐÍCH RIÊNG LẺ***************
+>>> PULL MỘT FILE CỤ THỂ TRÊN PROJECT:
+   CÂU LỆNH:
+        git pull origin <branch> -- <path/to/file>
+           ++ trong đó: <path/to/file> đg dẫn đến file git, có thể pull nhiều hơn một file
+       git pull origin <branch> -- <path/to/file> <path/to/file2>
+
+
+  vd:  
+git pull origin master -- LibraryManagement/src/data/LoginService.java    LibraryManagement/src/data/AdminService.java
+ 
+
+ >>>>PULL TẤT CẢ CÁC FILE CÓ ĐUÔI:.JS.CSS, .JAVA, .FXM...
+   CÂU LÊNH:
+         git pull origin master -- src/*.js
+          ++ VD: Ở ĐÂY MUỐN PUL TẤT CẢ FILE có đuôi .js trong folder src
+
+>>>> PULL TẤT CẢ FILE LUÔN HẾT TẤT CẢ TRONG MỘT FIOLDER TRONG PROJECT
+     CÂU LÊNH:
+         git pull origin master -- src/.
+         + vd: pull tất cá cacr file trong folder src
+
+
+
+           
+    

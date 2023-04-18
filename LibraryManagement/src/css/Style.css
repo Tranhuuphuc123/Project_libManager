@@ -1,0 +1,145 @@
+//=====================================================================================================================================
+//===========Menu chính============================
+#header-background{
+     //thiết lập màu nền header màu xanh
+    -fx-background-color: #426EB4;
+}
+
+//định nghĩa cho thanh menu_header ẩn các chức năng phụ
+#header-background .menu_header{
+       -fx-background-color:#103667;
+  }
+
+// định nghĩa ma cho các button cua menu header
+.JFX_Button{
+      -fx-Text-Fill: #FFFBD1;
+      -fx-font-size:15px;
+      -fx-FontWeight:Regular;
+      -fx-font-family: Arial;
+}
+
+
+
+//=====================================================================================================================================
+//=======menu ẩn trong mục plus(+) khi nhấn sẽ sổ ra===============
+.menu_Plus{
+    //sét màu xám tro
+  -fx-background-color: #C2C2C2;
+}
+.kieuchu_menu_plus{
+    -fx-Text-Fill: #103667;
+    -fx-font-size:15px;
+    -fx-FontWeight:Regular;
+    -fx-font-family: Arial;
+}
+
+.maunen_PaneLoginManager1{
+  -fx-background-color: #707070;
+}
+.maunen_menuLoginManager{
+ -fx-background-color: #A0A0A0;
+}
+
+.maunen_PaneLoginManager2{
+  -fx-background-color:#ECECEC;
+}
+//=====================================================================================================================================
+//=================sub-menu của nút nguồn ba gạch=========================
+    // background cho sub-menu nguồn ba gạch
+  .mauNen_MenuNguon{
+      -fx-background-color:#7388C1;
+      // bo  góc hình bầu cho hộp thoại Anchopane thay vi hinh vuong
+      -fx-background-radius:8px;
+  }
+
+  // mau chu cho jfx button
+  .font_chu{
+    -fx-Text-Fill: #363636;
+    -fx-font-size: 15px;
+    -fx-FontWeight: bold;
+    -fx-font-family: Time new romans;
+  }
+
+
+
+//=====================================================================================================================================
+//======================pane_MenuHome========================
+.maunen-PaneHome{
+     -fx-background-color:#D7D7D7;
+}
+
+
+
+
+
+
+//=====================================================================================================================================
+//===========================================================Pane_MenuStudent(Reader)==========================================================
+.maunen_paneStudent{
+   -fx-background-color:#B7B7B7;
+}
+.maunen_subPane_ReaderLogin{
+  -fx-background-color:  #555555;
+}
+
+.maunen_subPane_Reader{
+  -fx-background-color: #B7B7B7;
+}
+
+
+.box{
+    -fx-background-color:#ECECEC;
+    // bo  góc hình bầu cho hộp thoại Anchopane
+    -fx-background-radius:8px;
+}
+.box_search{
+  //bo góc đẹp
+  -fx-background-radius:8px;
+}
+
+
+//==========================================================Pane Student(Reader) Manager===========================================================================
+// tùy chỉnh cho table view của studentManager
+ .table_view{
+   -fx-background-color:#ECECEC;
+   -fx-background-radius:8px;
+   -fx-border-color:#103667;
+   -fx-border-radius: 10px;
+ }
+ .table_view .column-header-background{
+   -fx-background-color:#E54646;
+   -fx-font-size: 15px;
+ }
+ .table_view .column-header{
+      // tính nng transparent thừa kế màu từ thuộc tính cha
+     -fx-background-color:transparent;
+     -fx-border-color: black;
+     -fx-border-width: 0.2px;
+     -fx-border-radius: 8px;
+
+ }
+ .table_view .column-header .label{
+     -fx-text-fill: #ffff;
+ }
+
+ // khung load img đa diện
+ .image_Student{
+   -fx-border-radius: 8px;
+   -fx-border-color:#B2001F;
+   -fx-border-width: 0px;
+ }
+
+
+
+//=====================================================================================================================================
+//=================================================================Pane_BookManager====================================================
+.maunen_PaneBookManager{
+   -fx-background-color:#898989;
+
+}
+
+
+
+//=====================================================================================================================================
+//=================================================================Pane_Book Information Manager====================================================
+

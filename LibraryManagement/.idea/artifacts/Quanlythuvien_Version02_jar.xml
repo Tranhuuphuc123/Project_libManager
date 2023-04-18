@@ -1,0 +1,82 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Quanlythuvien_Version02:jar">
+    <output-path>D:/</output-path>
+    <root id="archive" name="Quanlythuvien_Version02.jar">
+      <element id="module-output" name="Quanlythuvien_Version02" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$Java_JDK$/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Scence_Builder_lib/fontawesomefx-8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Scence_Builder_lib/jfoenix-9.0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib_JDBC/mysql-connector-java-8.0.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib_JDBC/protobuf-java-3.19.4.jar" path-in-jar="/" />
+      <element id="library" level="project" name="fontawesomefx-8.2" />
+      <element id="library" level="application" name="lib" />
+      <element id="library" level="project" name="mysql-connector-java-8.0.30" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-console-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-console-l1-2-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-datetime-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-debug-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-errorhandling-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l1-2-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l2-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-handle-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-heap-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-interlocked-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-libraryloader-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-localization-l1-2-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-memory-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-namedpipe-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processenvironment-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processthreads-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processthreads-l1-1-1.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-profile-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-string-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-synch-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-synch-l1-2-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-sysinfo-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-timezone-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-core-util-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-conio-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-convert-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-environment-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-filesystem-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-heap-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-locale-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-math-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-multibyte-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-private-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-process-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-runtime-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-stdio-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-string-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-time-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-utility-l1-1-0.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/decora_sse.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/fxplugins.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/glass.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/glib-lite.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/gstreamer-lite.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/javafx_font.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/javafx_iio.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/jfxmedia.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/jfxwebkit.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/msvcp140.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/msvcp140_1.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/msvcp140_2.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/prism_common.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/prism_d3d.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/prism_sw.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/ucrtbase.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/vcruntime140.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../Scence_Builder_lib/Javafx_lib/openjfx-19.0.2.1_windows-x64_bin-sdk/javafx-sdk-19.0.2.1/bin/vcruntime140_1.dll" />
+    </root>
+  </artifact>
+</component>
