@@ -1,53 +1,41 @@
 package view;
 
-import controller.GenaralLoginController;
-import data.BorrowedDocumentService;
 import javafx.application.Application;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import model.BorrowAndReturnBook;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
+import java.awt.Desktop;
 
 public class ReaderUI extends Application {
-    private InputStream input;
+    private InputStream input ;
     private Image img;
     private ImageView imgView;
     private Stage window;
     private Scene scene;
     private BorderPane root;
-    private Label lblTitleRight;
-    private VBox vbLeft, vbRight;
-    private TableView<BorrowAndReturnBook> table;
-    private VBox  profileVbRight;
+    private VBox vbLeft;
     private Button borrowedBtn, renewalBtn, returnedBtn, searchBtn, registerDiscussionRoomBtn,
-            feedBackBtn, profileBtn, changePasswordBtn;
+            feedBackBtn, profileBtn, changePasswordBtn, instructionBtn;
 
     //======== some format string ===============
-    private String titleFormat = "-fx-background-color:#FCEABF ; -fx-text-fill:#8A660D;" +
-            "-fx-font-size:18px; -fx-font-weight:700;";
-    private String formatBtn = "-fx-text-fill:#FFFFFF; -fx-background-color:#B77906;-fx-font-size:16px;";
-    private String format = "-fx-font-size: 16px; -fx-font-weight: 500;";
+    //  private String menuFormat = "-fx-background-color:#496292;-fx-text-fill:#FFFFFF";
+    private String menuFormat = "-fx-background-color:#005864 ;-fx-text-fill:#FFFFFF";
 
+    private String menuEffect = "-fx-background-color:#93F3ED;-fx-text-fill:#000000";
     // ==========================================
 
     // Information Reader Login
@@ -67,6 +55,7 @@ public class ReaderUI extends Application {
         moveGoProfilePage();
         moveGoPasswordPage();
         moveGoFeedbackPage();
+        moveGoInstructionPage();
     }
     public void showWindow(){
 
@@ -84,14 +73,15 @@ public class ReaderUI extends Application {
 
         //========== Navigation ===============
 
-        borrowedBtn = new Button("Borrowed Documents");
-        renewalBtn = new Button("Renew Documents");
-        returnedBtn = new Button("Returned Documents");
+        borrowedBtn = new Button("Borrowed Document");
+        renewalBtn = new Button("Renew Document");
+        returnedBtn = new Button("Returned Document");
         searchBtn = new Button("Search Document");
         registerDiscussionRoomBtn = new Button("Discussion Room");
         profileBtn = new Button("My Profile");
         changePasswordBtn = new Button("Change Password");
         feedBackBtn = new Button("Feedback");
+        instructionBtn = new Button("Instructions For Use");
 
         borrowedBtn.setGraphic(borrowIcon()); borrowedBtn.setAlignment(Pos.CENTER_LEFT);
         renewalBtn.setGraphic(reIcon()); renewalBtn.setAlignment(Pos.CENTER_LEFT);
@@ -101,22 +91,24 @@ public class ReaderUI extends Application {
         profileBtn.setGraphic(proIcon()); profileBtn.setAlignment(Pos.CENTER_LEFT);
         changePasswordBtn.setGraphic(passIcon()); changePasswordBtn.setAlignment(Pos.CENTER_LEFT);
         feedBackBtn.setGraphic(feedBackIcon()); feedBackBtn.setAlignment(Pos.CENTER_LEFT);
+        instructionBtn.setGraphic(instructionIcon()); instructionBtn.setAlignment(Pos.CENTER_LEFT);
 
-        borrowedBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        renewalBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        returnedBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        searchBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        registerDiscussionRoomBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        profileBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        changePasswordBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
-        feedBackBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+        borrowedBtn.setStyle(menuFormat);
+        renewalBtn.setStyle(menuFormat);
+        returnedBtn.setStyle(menuFormat);
+        searchBtn.setStyle(menuFormat);
+        registerDiscussionRoomBtn.setStyle(menuFormat);
+        profileBtn.setStyle(menuFormat);
+        changePasswordBtn.setStyle(menuFormat);
+        feedBackBtn.setStyle(menuFormat);
+        instructionBtn.setStyle(menuFormat);
 
-        //Create a VBox contains HBox and padding
+        // Create a VBox contains HBox and padding
         vbLeft = new VBox(10);
         vbLeft.setPrefWidth(280);
         vbLeft.setPadding(new Insets(10));
         vbLeft.setAlignment(Pos.TOP_LEFT);
-        vbLeft.setStyle("-fx-background-color: transparent; -fx-background-color:#B4CAF3 ; -fx-text-fill:#FFFFFF ; " +
+        vbLeft.setStyle("-fx-background-color: transparent; -fx-background-color:#426EB4 ; -fx-text-fill:#FFFFFF ; " +
                 "-fx-font-size:18px; -fx-font-weight:500;");
 
         borrowedBtn.prefWidthProperty().bind(vbLeft.widthProperty());
@@ -127,78 +119,20 @@ public class ReaderUI extends Application {
         profileBtn.prefWidthProperty().bind(vbLeft.widthProperty());
         changePasswordBtn.prefWidthProperty().bind(vbLeft.widthProperty());
         feedBackBtn.prefWidthProperty().bind(vbLeft.widthProperty());
+        instructionBtn.prefWidthProperty().bind(vbLeft.widthProperty());
 
         vbLeft.getChildren().addAll(hbLogoAndTitle, borrowedBtn, returnedBtn, renewalBtn, searchBtn, registerDiscussionRoomBtn,
-                profileBtn, changePasswordBtn, feedBackBtn);
+                profileBtn, changePasswordBtn, feedBackBtn, instructionBtn);
 
-        // ================== RIGHT ===============================================
-        // Create center content area
-        lblTitleRight = new Label("Borrowed Document");
-        lblTitleRight.setPadding(new Insets(10));
-        lblTitleRight.setMinHeight(45);
-        lblTitleRight.setStyle(titleFormat);
-        lblTitleRight.setBorder(new Border(new BorderStroke(Color.ORANGE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-
-
-        vbRight = new VBox();
-        vbRight.setAlignment(Pos.TOP_CENTER);
-        vbRight.getChildren().add(lblTitleRight);
-        vbRight.setBorder(new Border(new BorderStroke(Color.ORANGE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        //================ TABLE ===================
-        VBox vbSubRight = new VBox();
-        vbSubRight.setAlignment(Pos.CENTER_LEFT);
-        vbSubRight.setSpacing(10);
-        vbSubRight.setPadding(new Insets(20));
-
-
-        TableView<BorrowAndReturnBook> tableView = new TableView<BorrowAndReturnBook>();
-
-        TableColumn<BorrowAndReturnBook, Integer> indexCol = new TableColumn<>("#");
-        TableColumn<BorrowAndReturnBook, String> barcodeCol = new TableColumn<>("Barcode");
-        TableColumn<BorrowAndReturnBook, String> titleCol = new TableColumn<>("Title");
-        TableColumn<BorrowAndReturnBook, Date> borrowedCol = new TableColumn<>("Borrowed Date");
-        TableColumn<BorrowAndReturnBook,Date> returnedCol = new TableColumn<>("Returned Date");
-        TableColumn<BorrowAndReturnBook, Integer> stateCol = new TableColumn<>("State");
-
-        tableView.getColumns().addAll(indexCol,barcodeCol,titleCol,borrowedCol,returnedCol,stateCol);
-
-        indexCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<BorrowAndReturnBook, Integer>, ObservableValue<Integer>>() {
-            @Override
-            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<BorrowAndReturnBook, Integer> param) {
-                return new ReadOnlyObjectWrapper<>(tableView.getItems().indexOf(param.getValue()) + 1);
-            }
-        });
-        String syle = "-fx-font-size:18px";
-        indexCol.setStyle(syle);
-        barcodeCol.setCellValueFactory(new PropertyValueFactory<>("readerID")); barcodeCol.setStyle(syle); //barcode
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("bookID")); titleCol.setStyle(syle);// title
-        borrowedCol.setCellValueFactory(new PropertyValueFactory<>("startDate")); borrowedCol.setStyle(syle);
-        returnedCol.setCellValueFactory(new PropertyValueFactory<>("retdate")); returnedCol.setStyle(syle);
-        stateCol.setCellValueFactory(new PropertyValueFactory<>("borrStatus")); stateCol.setStyle(syle);
-
-        GenaralLoginController currentReader = new GenaralLoginController();
-        String readerID = currentReader.getReaderIdOfLogin();
-
-        BorrowedDocumentService brr = new BorrowedDocumentService();
-        ObservableList<BorrowAndReturnBook> arr = brr.getBorrowedDocument(readerID);
-        tableView.getItems().addAll(arr);
-
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        vbSubRight.getChildren().add(tableView);
-        vbRight.getChildren().add(vbSubRight);
-
-        //===============================================================
-
-        vbRight.setBorder(new Border(new BorderStroke(Color.ORANGE, BorderStrokeStyle.SOLID,CornerRadii.EMPTY,BorderWidths.DEFAULT)));
-        lblTitleRight.prefWidthProperty().bind(vbRight.widthProperty());
-
+        //================ MAIN LAYOUT =============================================
+        BorrowedPage borrowedPage = new BorrowedPage();
         root = new BorderPane();
         root.setPadding(new Insets(10));
         root.setLeft(vbLeft);
-        root.setCenter(vbRight);
+        root.setCenter(borrowedPage);
 
         // Create scene and show stage
-        scene = new Scene(root, 995, 620);
+        scene = new Scene(root, 1024, 650);
         window.setScene(scene);
         window.setTitle("Library");
         window.show();
@@ -206,64 +140,72 @@ public class ReaderUI extends Application {
     public void addChangeColorBtn(){
         // Change color buttons
         borrowedBtn.setOnMouseEntered(et->{
-            borrowedBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            borrowedBtn.setStyle(menuEffect);
         });
         borrowedBtn.setOnMouseExited(et->{
-            borrowedBtn.setStyle("-fx-background-color:#BB6E04;-fx-text-fill:#FFFFFF");
+            borrowedBtn.setStyle("-fx-background-color:#04837A;-fx-text-fill:#FFFFFF");
         });
 
         renewalBtn.setOnMouseEntered(et->{
-            renewalBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            renewalBtn.setStyle(menuEffect);
         });
         renewalBtn.setOnMouseExited(et->{
-            renewalBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            renewalBtn.setStyle(menuFormat);
         });
 
         returnedBtn.setOnMouseEntered(et->{
-            returnedBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            returnedBtn.setStyle(menuEffect);
         });
         returnedBtn.setOnMouseExited(et->{
-            returnedBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            returnedBtn.setStyle(menuFormat);
         });
 
         searchBtn.setOnMouseEntered(et->{
-            searchBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            searchBtn.setStyle(menuEffect);
         });
         searchBtn.setOnMouseExited(et->{
-            searchBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            searchBtn.setStyle(menuFormat);
         });
 
         registerDiscussionRoomBtn.setOnMouseEntered(et->{
-            registerDiscussionRoomBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            registerDiscussionRoomBtn.setStyle(menuEffect);
         });
         registerDiscussionRoomBtn.setOnMouseExited(et->{
-            registerDiscussionRoomBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            registerDiscussionRoomBtn.setStyle(menuFormat);
         });
 
         profileBtn.setOnMouseEntered(et->{
-            profileBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            profileBtn.setStyle(menuEffect);
         });
         profileBtn.setOnMouseExited(et->{
-            profileBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            profileBtn.setStyle(menuFormat);
         });
 
         changePasswordBtn.setOnMouseEntered(et->{
-            changePasswordBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            changePasswordBtn.setStyle(menuEffect);
         });
         changePasswordBtn.setOnMouseExited(et->{
-            changePasswordBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            changePasswordBtn.setStyle(menuFormat);
         });
 
         feedBackBtn.setOnMouseEntered(et->{
-            feedBackBtn.setStyle("-fx-background-color:#F5E62D;-fx-text-fill:#000000");
+            feedBackBtn.setStyle(menuEffect);
         });
         feedBackBtn.setOnMouseExited(et->{
-            feedBackBtn.setStyle("-fx-background-color:#496292;-fx-text-fill:#FFFFFF");
+            feedBackBtn.setStyle(menuFormat);
+        });
+
+        instructionBtn.setOnMouseEntered(et->{
+            instructionBtn.setStyle(menuEffect);
+        });
+        instructionBtn.setOnMouseExited(et->{
+            instructionBtn.setStyle(menuFormat);
         });
     }
     public void moveGoBorrowedPage(){
         borrowedBtn.setOnAction(event -> {
-            root.setCenter(vbRight);
+            BorrowedPage borrowedPage = new BorrowedPage();
+            root.setCenter(borrowedPage);
         });
     }
     public void moveGoRenewalPage(){
@@ -281,8 +223,8 @@ public class ReaderUI extends Application {
     }
     public void moveGoSearchPage(){
         searchBtn.setOnAction(event -> {
-            Label lbl = new Label("THIS FUNCTION IS IN DEVELOPMENT STAGE");
-            lbl.setStyle(format + "-fx-font-size:20px");
+            SearchDocumentPage seachPage = new SearchDocumentPage();
+            root.setCenter(seachPage);
         });
     }
     public void moveGoRegisterDisRoomPage(){
@@ -312,14 +254,24 @@ public class ReaderUI extends Application {
         });
     }
 
-
-
-    //=====================     EVENT =======================================================
+    public void moveGoInstructionPage(){
+        instructionBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    File htmlFile = new File("src/Guidline/reader.html");
+                    Desktop.getDesktop().browse(htmlFile.toURI());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
 
 
     //===================== ICON FUNCTION ====================================================
     public ImageView loginIcon(){
-        input = getClass().getResourceAsStream("/icon/ReaderUI/logo4.png");
+        input = getClass().getResourceAsStream("/icon/ReaderUI/logo7.png");
         img = new Image(input);
         imgView = new ImageView(img);
         imgView.setFitHeight(52);
@@ -389,6 +341,15 @@ public class ReaderUI extends Application {
     }
     public ImageView feedBackIcon() {
         input = getClass().getResourceAsStream("/icon/ReaderUI/feed2.png");
+        img = new Image(input);
+        imgView = new ImageView(img);
+        imgView.setFitHeight(30);
+        imgView.setFitWidth(30);
+        return imgView;
+    }
+
+    public ImageView instructionIcon() {
+        input = getClass().getResourceAsStream("/icon/ReaderUI/instruc.png");
         img = new Image(input);
         imgView = new ImageView(img);
         imgView.setFitHeight(30);

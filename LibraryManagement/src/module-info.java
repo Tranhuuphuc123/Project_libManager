@@ -7,6 +7,7 @@ module Quanlythuvien.Version02 {
     requires com.jfoenix;
     requires java.base;
     requires java.net.http;
+    requires java.desktop;
 
     exports testUI;
     opens controller;

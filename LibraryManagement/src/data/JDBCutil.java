@@ -9,7 +9,7 @@ public class JDBCutil{
     public static Connection connectJDBC() {
         final String url = "jdbc:mysql://localhost:3306/LibraryManagement";
         final String user ="root";
-        final String password ="Huuphuc1995ct@";
+        final String password ="Nhansu123@";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

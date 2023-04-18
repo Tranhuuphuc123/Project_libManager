@@ -52,9 +52,24 @@ public class GenaralLoginController implements Initializable{
             Reader reader = null;
 
             try {
+                if(txtUser.getText().isEmpty() || txtPass.getText().isEmpty()){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Message");
+                    alert.setHeaderText("Problem");
+                    alert.setContentText("Username and password cannot be blank!");
+                    alert.showAndWait();
+                }else if(combo_UserType.getSelectionModel().isEmpty()){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Message");
+                    alert.setHeaderText("Problem");
+                    alert.setContentText("You have not selected the type of account you want to log in to. Please click Option and select it.");
+                    alert.showAndWait();
+                }
                 if(combo_UserType.getValue() == "Admin"){
                     loginService = new LoginService();
                     employee = loginService.EmployeeLogin(txtUser.getText(), txtPass.getText());
+                    System.out.println("EMP: " + txtUser + " pass : " + txtPass);
+                    System.out.println("Emp : " + employee.getEmpID());
                     if(employee != null) {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Successful!");
@@ -76,7 +91,7 @@ public class GenaralLoginController implements Initializable{
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Login is fails!");
                         alert.setHeaderText(null);
-                        alert.setContentText("Login is Fail!");
+                        alert.setContentText("Your Username or Password is incorrect.\nPlease check again.");
                         alert.showAndWait();
                     }
 
@@ -102,7 +117,7 @@ public class GenaralLoginController implements Initializable{
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Fail Login");
                         alert.setHeaderText(null);
-                        alert.setContentText("Login is fails!");
+                        alert.setContentText("Your Username or Password is incorrect.\nPlease check again.");
                         alert.showAndWait();
                     }
                 }

@@ -30,12 +30,12 @@ public class DiscussionRoomService extends JDBCutil{
     }
 
     public int handleRegisterBorrowedDisRoom(RetristersBorrowed retrister, LocalDate disDate){
-            String disID = handleDisID(retrister.getDisID());
-            System.out.println("Reader id: " + retrister.getReaderID());
-            if(seachRoom(disID, retrister.getReaderID()) < -1){
-                try{
+        String disID = handleDisID(retrister.getDisID());
+        System.out.println("Reader id: " + retrister.getReaderID());
+        if(seachRoom(disID, retrister.getReaderID()) < -1){
+            try{
                 String sql = "INSERT INTO RetristersBorrowed (DisID, ReaderID, BorrowedByShift, DisDate," +
-                        " Description, Activity) VALUES (?, ?, ?, ?, ?,'Pending');";
+                        " Description, Activity) VALUES (?, ?, ?, ?, ?,'Processed');";
                 PreparedStatement preState = connectJDBC().prepareStatement(sql);
                 preState.setString(1, disID);
                 preState.setString(2, retrister.getReaderID());
@@ -45,18 +45,18 @@ public class DiscussionRoomService extends JDBCutil{
 
                 return preState.executeUpdate();
 
-                }catch (SQLException ex){
+            }catch (SQLException ex){
 
-                    ex.printStackTrace();
-                }
-            }else{
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Message");
-                alert.setHeaderText("Warning");
-                alert.setContentText("Room has been borrowed!");
-                alert.showAndWait();
+                ex.printStackTrace();
             }
-            return -2;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Message");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Room has been borrowed!");
+            alert.showAndWait();
+        }
+        return -2;
     }
 
     protected String handleDisID(String name){

@@ -9,7 +9,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d677a4df-4e79-4f92-81a8-8730cd95f5f1" name="Changes" comment="" />
+    <list default="true" id="d677a4df-4e79-4f92-81a8-8730cd95f5f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Guidline/emp.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/emp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/emp6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re1.jpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re2.jpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re3.jpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re4.jpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/img/re8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Guidline/reader.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/SearchDocumentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icon/ReaderUI/instruc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icon/ReaderUI/logo6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icon/ReaderUI/logo7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BorrowedPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/SearchDocumentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/JDBCutil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/JDBCutil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GenaralLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GenaralLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ReadeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/BorrowedDocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/BorrowedDocumentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DiscussionRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DiscussionRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/JDBCutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/JDBCutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/PasswordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/PasswordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/RenewDocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/RenewDocumentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icon/ReaderUI/logo5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/icon/ReaderUI/logo5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DiscussionRoomPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DiscussionRoomPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PasswordPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PasswordPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ReaderUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ReaderUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RenewalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RenewalPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ReturnedPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ReturnedPage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,21 +105,21 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Subject\eProject_II\Project_18_4\LibraryManagement\src\icon\ReaderUI" />
+      <recent name="D:\Subject\eProject_II\Project_18_4\LibraryManagement\src" />
       <recent name="G:\DO_AN_PROJECT\Project_QuanlyTTHL_DHCT\LibraryManagement\src\icon" />
       <recent name="D:\Subject\eProject_II\Project_14_4\LibraryManagement\src\icon\ReaderUI" />
       <recent name="G:\DO_AN_PROJECT\Project_CanthoLib\LibraryManagement\src\icon\Manager" />
-      <recent name="G:\DO_AN_PROJECT\Project_CanthoLib\LibraryManagement\src\icon" />
-      <recent name="G:\DO_AN_PROJECT\Project_CanthoLib\LibraryManagement\src\icon\ReaderImg" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\DO_AN_PROJECT\Project_CanthoLib\LibraryManagement\src\view" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="view" />
       <recent name="data" />
+      <recent name="view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DepartmentPage">
+  <component name="RunManager" selected="Application.ProgramTest">
     <configuration name="DepartmentPage (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.DepartmentPage" />
       <module name="Quanlythuvien_Version02" />
@@ -140,8 +187,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DepartmentPage" />
         <item itemvalue="Application.ProgramTest" />
+        <item itemvalue="Application.DepartmentPage" />
         <item itemvalue="Application.DepartmentPage (1)" />
         <item itemvalue="Application.EmployeePage" />
         <item itemvalue="Application.EmployeePage (1)" />

@@ -63,11 +63,9 @@ public class ReturnedPage extends BorderPane{
         borrowedCol.setCellValueFactory(new PropertyValueFactory<>("startDate")); borrowedCol.setStyle(style);
         returnedCol.setCellValueFactory(new PropertyValueFactory<>("retdate")); returnedCol.setStyle(style);
 
-        GenaralLoginController currentReader = new GenaralLoginController();
-        String readerID = currentReader.getReaderIdOfLogin();  //id reader login
 
         ReturnedDocumentService returnService = new ReturnedDocumentService();
-        ObservableList<BorrowAndReturnBook> arr = returnService.getReturnedDocument(readerID);
+        ObservableList<BorrowAndReturnBook> arr = returnService.getReturnedDocument(GenaralLoginController.getReaderIdOfLogin());
         table.getItems().addAll(arr);
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

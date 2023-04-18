@@ -1,0 +1,20 @@
+h2{
+	margin: 10px 0px 10px 20px;
+	font-size: 32px;
+}
+
+img{
+	height: 470px;
+}
+
+.block{
+	margin: 30px 70px 20px 70px;
+	font-size: 18px;
+}
+
+.block8{
+	margin-top: 50px;
+	font-size: 24px;
+	font-weight: 700;
+	color: blueviolet;
+}

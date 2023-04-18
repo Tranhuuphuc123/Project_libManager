@@ -35,8 +35,8 @@ public class ProfilePage extends BorderPane {
         InputStream input = getClass().getResourceAsStream("/icon/ReaderUI/b1.jpg");
         Image img = new Image(input);
         ImageView imgView = new ImageView(img);
-        imgView.setFitHeight(200);
-        imgView.setFitWidth(200);
+        imgView.setFitHeight(180);
+        imgView.setFitWidth(180);
         leftProfile.getChildren().add(imgView);
 
         // ========== RIGHT PROFILE ================
@@ -45,32 +45,32 @@ public class ProfilePage extends BorderPane {
         Reader infoReader = new Reader();
         infoReader = profileService.inforReader(GenaralLoginController.getReaderIdOfLogin());
 
-        Label usernameTitle = new Label("Username: ");
+        Label usernameTitle = new Label("Username ");
         Label usernameLbl = new Label();
         usernameLbl.setText(infoReader.getReaderName()); usernameLbl.setStyle(lblFormat + "-fx-font-weight:700");
 
-        Label idTitle = new Label("Reader ID: ");
+        Label idTitle = new Label("Reader ID ");
         Label idLbl = new Label();
         idLbl.setText(infoReader.getReaderID()); idLbl.setStyle(lblFormat);
 
-        Label birthTitle = new Label("Date Of Birth: ");
+        Label birthTitle = new Label("Date Of Birth ");
         birthTitle.setMinWidth(125);
         Label birthLbl = new Label();
         birthLbl.setText(sdf.format(infoReader.getBirth())); birthLbl.setStyle(lblFormat);
 
-        Label dateCreatedTitle = new Label("Date Created: ");
+        Label dateCreatedTitle = new Label("Date Created ");
         Label dateCreatedLbl = new Label();
         dateCreatedLbl.setText(sdf.format(infoReader.getDateCreated())); dateCreatedLbl.setStyle(lblFormat);
 
-        Label outDateTitle = new Label("Out Of Title: ");
+        Label outDateTitle = new Label("Out Of Title ");
         Label outDateLbl = new Label();
         outDateLbl.setText(sdf.format(infoReader.getOutOfDate())); outDateLbl.setStyle(lblFormat);
 
-        Label addressTitle = new Label("Address: ");
+        Label addressTitle = new Label("Address ");
         Label addressLbl = new Label();
         addressLbl.setText(infoReader.getReaderAddress()); addressLbl.setStyle(lblFormat);
 
-        Label phoneTitle = new Label("Phone: ");
+        Label phoneTitle = new Label("Phone ");
         Label phoneLbl = new Label();
         phoneLbl.setText(infoReader.getReaderPhone()); phoneLbl.setStyle(lblFormat);
 

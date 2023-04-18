@@ -1,6 +1,7 @@
 package view;
 
 import controller.GenaralLoginController;
+import data.BorrowedDocumentService;
 import data.RenewDocumentService;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleObjectProperty;
@@ -9,10 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -25,20 +23,21 @@ import java.util.Date;
 
 public class RenewalPage extends BorderPane {
     private VBox vbRight,  renewalVbRight;
-
-    private String titleFormat = "-fx-background-color:#FCEABF ; -fx-text-fill:#8A660D;" +
-            "-fx-font-size:18px; -fx-font-weight:700;";
-    private String titleTableFormat ="-fx-font-size:18px";
     private  TableView<BorrowAndReturnBook> table;
     private boolean isUpdateSelected  = false;
+
     protected ObservableList<BorrowAndReturnBook> renewList = null;
     protected RenewDocumentService renewService = new RenewDocumentService();
-    protected GenaralLoginController currentReader = new GenaralLoginController();
-    protected String readerID = currentReader.getReaderIdOfLogin();
+    protected String readerID = GenaralLoginController.getReaderIdOfLogin();
+
+    private String titleTableFormat ="-fx-font-size:18px";
+    private String titleFormat = "-fx-background-color:#FCEABF ; -fx-text-fill:#8A660D;" +
+            "-fx-font-size:18px; -fx-font-weight:700;";
+
 
     public RenewalPage(){
         vbRight = new VBox();
-        vbRight.setMargin(vbRight, new Insets(50));
+//        vbRight.setMargin(vbRight, new Insets(50));
         vbRight.setAlignment(Pos.TOP_CENTER);
         vbRight.setBorder(new Border(new BorderStroke(Color.ORANGE, BorderStrokeStyle.SOLID,
                 CornerRadii.EMPTY, BorderWidths.DEFAULT)));
@@ -58,7 +57,6 @@ public class RenewalPage extends BorderPane {
 
         table = new TableView<>();
         // === Create index column
-        TableColumn<BorrowAndReturnBook, Integer> indexCol = new TableColumn<>("#");
         TableColumn<BorrowAndReturnBook, String> barcodeCol = new TableColumn<>("Barcode");
         TableColumn<BorrowAndReturnBook, String> titleCol = new TableColumn<>("Title Book");
         TableColumn<BorrowAndReturnBook, LocalDate> renewalCol = new TableColumn<>("Renewal Date");
@@ -67,7 +65,7 @@ public class RenewalPage extends BorderPane {
         TableColumn<BorrowAndReturnBook, Node> stateBtnCol = new TableColumn<>("Status");
 
         // === Add column into table
-        table.getColumns().addAll(indexCol,barcodeCol, titleCol, renewalCol,borrowedCol, returnedCol, stateBtnCol);
+        table.getColumns().addAll(barcodeCol, titleCol, renewalCol,borrowedCol, returnedCol, stateBtnCol);
 
         //======= titleCol, borrowedCol, returnedCol =========
         barcodeCol.setCellValueFactory(new PropertyValueFactory<>("bookID")); barcodeCol.setStyle(titleTableFormat);
@@ -76,15 +74,6 @@ public class RenewalPage extends BorderPane {
         returnedCol.setCellValueFactory(new PropertyValueFactory<>("retdate")); returnedCol.setStyle(titleTableFormat);
         renewalCol.setStyle(titleTableFormat);
         stateBtnCol.setStyle(titleTableFormat);
-
-        //======= indexCol =========
-        indexCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<BorrowAndReturnBook, Integer>, ObservableValue<Integer>>() {
-            @Override
-            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<BorrowAndReturnBook, Integer> param) {
-                return new ReadOnlyObjectWrapper<>(table.getItems().indexOf(param.getValue()) + 1);
-            }
-        });
-        indexCol.setStyle(titleTableFormat);
 
         //======= renewalCol =========
         renewalCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<BorrowAndReturnBook, LocalDate>, ObservableValue<LocalDate>>() {
@@ -96,34 +85,35 @@ public class RenewalPage extends BorderPane {
         });
 
         //======= stateBtnCol =========
-        stateBtnCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<BorrowAndReturnBook, Node>, ObservableValue<Node>>() {
-            private Button button = null;
-            private boolean isButtonDisabled = false;
-            @Override
-            public ObservableValue<Node> call(TableColumn.CellDataFeatures<BorrowAndReturnBook, Node> dataFeatures) {
-                button = new Button("Renew here");
-                button.setOnAction(et -> {
-                    if(!dataFeatures.getValue().getIsUpdated()){
-
-                        renewService.updateRenewal(readerID,barcodeCol.getCellData(dataFeatures.getValue()));
-                        button.setText("Successfully");
-                        table.getItems().clear();
-                        table.getItems().addAll(renewService.getRenewalDocument(readerID));
-                        isButtonDisabled = true;
-                        dataFeatures.getValue().setIsUpdated(true);
-                    }
+        stateBtnCol.setCellFactory(col -> new TableCell<BorrowAndReturnBook, Node>() {
+            private final Button button = new Button("Renewal");
+            private boolean isDisabled = false;
+            {
+                button.setOnAction(event -> {
+                    BorrowAndReturnBook rowData = getTableView().getItems().get(getIndex());
+                    renewService.updateRenewal(readerID, barcodeCol.getCellData(rowData));
+                    isDisabled = true;
+                    button.setDisable(true);
+                    button.setText("Renewed");
                 });
-                if (isButtonDisabled) {
-                    button.setDisable(true);  // nó cho giá tri
-                }
-
-                button.setStyle("-fx-font-size:14; -fx-background-color:#02D1FA; -fx-text-fill:#ffffff");
-
-                return new SimpleObjectProperty<Node>(button);
             }
 
+            @Override
+            protected void updateItem(Node item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                    button.setStyle("-fx-font-size:14; -fx-background-color:#02D1FA; -fx-text-fill:#ffffff");
+                    if (isDisabled) {
+                        button.setDisable(true);
+                    } else {
+                        button.setDisable(false);
+                    }
+                }
+            }
         });
-
 
         // === push data into table
         renewList = renewService.getRenewalDocument(readerID);

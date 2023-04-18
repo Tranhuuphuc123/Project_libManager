@@ -113,7 +113,7 @@ public class DiscussionRoomPage extends BorderPane {
         Button cancelBtn = new Button("Cancel");
 
 
-        verifyBtn.setStyle(format + "-fx-text-fill:#FFFFFF; -fx-background-color: #03EF79; ");
+        verifyBtn.setStyle(format + "-fx-text-fill:#FFFFFF; -fx-background-color: #08C664; ");
         cancelBtn.setStyle(format + "-fx-text-fill:#FFFFFF; -fx-background-color: #E20825; ");
 
         HBox btnHb = new HBox(35);

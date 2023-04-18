@@ -36,8 +36,8 @@ public class RenewDocumentService extends JDBCutil{
 
     public void updateRenewal(String readerID, String bookID){
 
-        String sql = "UPDATE BorrowedAndReturnedBook SET RetDate = DATE_ADD(RetDate, INTERVAL 7 DAY)" +
-                     " WHERE ReaderID = ? AND BookID = (SELECT BookID  FROM Books Where BookBarCode= ?)";
+        String sql = "UPDATE BorrowedAndReturnedBook SET RetDate = DATE_ADD(RetDate, INTERVAL 7 DAY), BorrStatus='Renewed'"+
+                " WHERE ReaderID = ? AND BookID = (SELECT BookID  FROM Books Where BookBarCode= ?)";
 
         try{
             PreparedStatement preStatement = connectJDBC().prepareStatement(sql);

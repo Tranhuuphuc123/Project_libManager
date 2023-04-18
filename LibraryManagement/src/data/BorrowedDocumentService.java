@@ -16,7 +16,7 @@ public class BorrowedDocumentService extends JDBCutil{
             String sql = "SELECT bk.BookTitle, bk.BookBarCode, brr.BorrStartDate, brr.RetDate, brr.BorrStatus" +
                     " FROM Reader re join BorrowedAndReturnedBook brr" +
                     " on re.ReaderID=brr.ReaderID join Books bk on brr.BookID = bk.BookID" +
-                    " WHERE re.ReaderID=? AND BorrStatus = 'Borrowed'";
+                    " WHERE re.ReaderID=? AND BorrStatus IN('Borrowed', 'Renewed')";
             PreparedStatement preStatement = connectJDBC().prepareStatement(sql);
             preStatement.setString(1, readerID);
             ResultSet resultSet = preStatement.executeQuery();
