@@ -74,7 +74,7 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane Pane_Home;
     @FXML
-    private JFXButton btn_EmpPage,btn_Depart;
+    private JFXButton btn_EmpPage,btn_Depart, btn_ManagerBook;s
 
 
     // khởi tạo tên id cho submenu_Student
