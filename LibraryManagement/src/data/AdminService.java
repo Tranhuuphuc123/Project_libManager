@@ -63,6 +63,65 @@ public class AdminService extends JDBCutil{
 
 
     /*===================================table reader=======================================================================*/
+    // Feedback
+    public ObservableList<Feedback> getFeedback(){
+        ObservableList<Feedback> feedList = FXCollections.observableArrayList();
+
+        try{
+            String sql = "SELECT * FROM Feedback WHERE FeedStatus = 'Pending';";
+            PreparedStatement statement = connectJDBC().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                Feedback feedback = new Feedback();
+                feedback.setFeedID(resultSet.getString(1));
+                feedback.setTypeOfFeed(resultSet.getString(2));
+                feedback.setContentOfFeed(resultSet.getString(3));
+                feedback.setContentDetailsOfFeed(resultSet.getString(4));
+                feedback.setSendingTime(resultSet.getTime(5).toLocalTime());
+                feedback.setStatusFeed(resultSet.getString(6));
+                feedList.add(feedback);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return feedList;
+    }
+
+    public void updateFeedback(String feedID){
+        try{
+            String sql = "UPDATE Feedback SET FeedStatus = 'Processed' WHERE FeedID = ?;";
+            PreparedStatement statement = connectJDBC().prepareStatement(sql);
+            statement.setString(1, feedID);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public ObservableList<Feedback> getAllFeedback(){
+        ObservableList<Feedback> feedList = FXCollections.observableArrayList();
+
+        try{
+            String sql = "SELECT * FROM Feedback WHERE FeedStatus = 'Processed';";
+            PreparedStatement statement = connectJDBC().prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                Feedback feedback = new Feedback();
+                feedback.setFeedID(resultSet.getString(1));
+                feedback.setTypeOfFeed(resultSet.getString(2));
+                feedback.setContentOfFeed(resultSet.getString(3));
+                feedback.setContentDetailsOfFeed(resultSet.getString(4));
+                feedback.setSendingTime(resultSet.getTime(5).toLocalTime());
+                feedback.setStatusFeed(resultSet.getString(6));
+                feedList.add(feedback);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return feedList;
+    }
 
     // load table reader with condition
     public ObservableList<Reader> getActiveReaders(){

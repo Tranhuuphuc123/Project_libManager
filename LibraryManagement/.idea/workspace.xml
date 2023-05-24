@@ -10,13 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d677a4df-4e79-4f92-81a8-8730cd95f5f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/ManageBooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DepartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DepartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/EmpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/controller/AdminController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/controller/AdminController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/JDBCutil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/data/JDBCutil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/model/Feedback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/model/Feedback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/view/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quanlythuvien_Version02/view/Admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/JDBCutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/JDBCutil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ManagesBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ManagesBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DepartmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DepartmentPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EmployeePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/managerbooks.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,20 +87,7 @@
       <recent name="view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProgramTest">
-    <configuration name="DepartmentPage (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.DepartmentPage" />
-      <module name="Quanlythuvien_Version02" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.ManageBooks">
     <configuration name="DepartmentPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.DepartmentPage" />
       <module name="Quanlythuvien_Version02" />
@@ -109,6 +103,19 @@
     </configuration>
     <configuration name="EmployeePage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.EmployeePage" />
+      <module name="Quanlythuvien_Version02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageBooks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.ManageBooks" />
       <module name="Quanlythuvien_Version02" />
       <extension name="coverage">
         <pattern>
@@ -148,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ManageBooks" />
         <item itemvalue="Application.ProgramTest" />
         <item itemvalue="Application.managerbooks" />
         <item itemvalue="Application.EmployeePage" />
         <item itemvalue="Application.DepartmentPage" />
-        <item itemvalue="Application.DepartmentPage (1)" />
       </list>
     </recent_temporary>
   </component>

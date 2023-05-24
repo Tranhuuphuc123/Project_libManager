@@ -47,10 +47,10 @@ public class ManagerBooks_service extends JDBCutil {
             ResultSet rs = prepare.executeQuery();
             while (rs.next()){
                 ManagesBook managerbook = new ManagesBook();
-                managerbook.setBookID(rs.getString("EmpID"));
-                managerbook.setBookID(rs.getString("BookID"));
-                managerbook.setDateAdd(rs.getDate("DateAdded"));
-                managerbook.setActivity(rs.getString("Activity"));
+                managerbook.setEmpID(rs.getString(1));
+                managerbook.setBookID(rs.getString(2));
+                managerbook.setDateAdd(rs.getDate(3));
+                managerbook.setActivity(rs.getString(4));
 
                 listData.add(managerbook);
             }

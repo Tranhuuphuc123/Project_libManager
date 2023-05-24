@@ -38,6 +38,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
@@ -50,6 +51,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import view.DepartmentPage;
 import view.EmployeePage;
+import view.ManageBooks;
 
 
 //import static sun.security.util.KnownOIDs.Data;
@@ -444,6 +446,9 @@ public class AdminController implements Initializable {
         }else if(event.getSource()==btn_DisscusionRoom){
             Pane_DiscussionRoom.setVisible(true);
             Pane_DiscussionRoom.toFront();
+        }else if(event.getSource() == feedbackBtn){
+            Pane_Feedback.setVisible(true);
+            Pane_Feedback.toFront();
         }
     }
 
@@ -538,6 +543,10 @@ public class AdminController implements Initializable {
             Stage stage = new Stage();
             DepartmentPage depPage = new DepartmentPage();
             depPage.start(stage);
+        }else if(event.getSource()== btn_ManagerBook){
+            Stage stage = new Stage();
+            ManageBooks manageBooks = new ManageBooks();
+            manageBooks.start(stage);
         }
    }
 
@@ -2344,7 +2353,8 @@ public class AdminController implements Initializable {
         showBorrowAndReturnBook();
         //add showRetristersBorrowed()
         showRetristersBorrowed();
-
+        //Feedback
+        handleFeedback();
 
         /*combobox has for loop*/
         //set show ComboboxCatalog of pane CatalogOfBook
@@ -2457,7 +2467,132 @@ public class AdminController implements Initializable {
     }
 
 
+    // ======= Feedback ========
 
+    // === Feedback
+    @FXML
+    private AnchorPane Pane_Feedback;
+    @FXML
+    private JFXButton feedbackBtn;
+    @FXML
+    private ComboBox<Feedback> statusCbo;
+    @FXML
+    private TableView<Feedback> feedTable = new TableView<>();
+
+    @FXML
+    private TableColumn<Feedback, String> noCol;
+    @FXML
+    private TableColumn<Feedback, String> typeofCol;
+    @FXML
+    private TableColumn<Feedback, String> contentCol;
+    @FXML
+    private TableColumn<Feedback, String> detailsCol;
+    @FXML
+    private TableColumn<Feedback, LocalTime> timeCol;
+    @FXML
+    private TableColumn<Feedback, Node> statusCol;
+
+    @FXML
+    private Button feedShowAllBtn, feedRefreshBtn;
+    public void handleFeedback(){
+        noCol.setCellValueFactory(new PropertyValueFactory<>("feedID"));
+        typeofCol.setCellValueFactory(new PropertyValueFactory<>("typeOfFeed"));
+        contentCol.setCellValueFactory(new PropertyValueFactory<>("contentOfFeed"));
+        detailsCol.setCellValueFactory(new PropertyValueFactory<>("contentDetailsOfFeed"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("sendingTime"));
+        statusCol.setCellFactory(col -> new TableCell<Feedback, Node>() {
+            private final Button button = new Button("Pending");
+            private boolean isDisabled = false;
+            {
+                button.setOnAction(event -> {
+                    Feedback data = getTableView().getItems().get(getIndex());
+                    adminService.updateFeedback(noCol.getCellData(data));
+                    isDisabled = true;
+                    button.setDisable(true);
+                    button.setText("Processed");
+                });
+            }
+
+            @Override
+            protected void updateItem(Node item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                    button.setStyle("-fx-font-size:14; -fx-background-color:#02D1FA; -fx-text-fill:#ffffff");
+                    if (isDisabled) {
+                        button.setDisable(true);
+                    } else {
+                        button.setDisable(false);
+                    }
+                }
+            }
+        });
+
+
+        ObservableList<Feedback> feedList = adminService.getFeedback();
+        feedTable.setItems(feedList);
+    }
+
+    public void handleFeedShowAll(){
+        feedShowAllBtn.setOnAction(event -> {
+            feedTable.getItems().clear();
+
+            statusCol.setCellFactory(col -> new TableCell<Feedback, Node>() {
+                private final Button button = new Button("Processed");
+                @Override
+                protected void updateItem(Node item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(button);
+                        button.setStyle("-fx-font-size:14; -fx-background-color:#02D1FA; -fx-text-fill:#ffffff");
+                    }
+                }
+            });
+
+            ObservableList<Feedback> feedList = adminService.getAllFeedback();
+            feedTable.setItems(feedList);
+        });
+    }
+    public void handleFeedRefresh(){
+        feedRefreshBtn.setOnAction(event -> {
+            statusCol.setCellFactory(col -> new TableCell<Feedback, Node>() {
+                private final Button button = new Button("Pending");
+                private boolean isDisabled = false;
+                {
+                    button.setOnAction(event -> {
+                        Feedback data = getTableView().getItems().get(getIndex());
+                        adminService.updateFeedback(noCol.getCellData(data));
+                        isDisabled = true;
+                        button.setDisable(true);
+                        button.setText("Processed");
+                    });
+                }
+
+                @Override
+                protected void updateItem(Node item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(button);
+                        button.setStyle("-fx-font-size:14; -fx-background-color:#02D1FA; -fx-text-fill:#ffffff");
+                        if (isDisabled) {
+                            button.setDisable(true);
+                        } else {
+                            button.setDisable(false);
+                        }
+                    }
+                }
+            });
+
+            feedTable.getItems().clear();
+            feedTable.setItems(adminService.getFeedback());
+        });
+    }
 
 
 

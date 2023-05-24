@@ -1,35 +1,36 @@
 package view;
-import data.EmpService;
-import data.ManagerBooks_service;
-import java.time.format.DateTimeFormatter;
-import com.jfoenix.controls.JFXButton;
-import data.DepartService;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import model.Department;
-import model.Employee;
-import model.ManagesBook;
+        import data.EmpService;
+        import data.ManagerBooks_service;
+        import java.time.format.DateTimeFormatter;
+        import com.jfoenix.controls.JFXButton;
+        import data.DepartService;
+        import javafx.application.Application;
+        import javafx.collections.FXCollections;
+        import javafx.collections.ObservableList;
+        import javafx.event.ActionEvent;
+        import javafx.event.EventHandler;
+        import javafx.geometry.Insets;
+        import javafx.geometry.Pos;
+        import javafx.scene.Node;
+        import javafx.scene.Scene;
+        import javafx.scene.control.*;
+        import javafx.scene.control.cell.PropertyValueFactory;
+        import javafx.scene.image.Image;
+        import javafx.scene.image.ImageView;
+        import javafx.scene.layout.BorderPane;
+        import javafx.scene.layout.GridPane;
+        import javafx.scene.layout.HBox;
+        import javafx.scene.layout.VBox;
+        import javafx.stage.Stage;
+        import model.Department;
+        import model.Employee;
+        import model.ManagesBook;
 
-import java.io.InputStream;
-import java.time.LocalDate;
+        import java.io.InputStream;
+        import java.time.LocalDate;
+        import java.util.Date;
 
-public class managerbooks extends Application {
+public class ManageBooks extends Application {
     private Image img;
     private ImageView imgView,imgView_Insert, imgView_Update,imgView_Clean,imgView_Refesh,img_ViewSearch,img_ViewShowAll;
 
@@ -37,13 +38,19 @@ public class managerbooks extends Application {
     private GridPane gridpane_Left;
     private InputStream input;
     private VBox vboxLeft, vboxRight,vsubbox_tabledep;
+
     private DatePicker datePicker_DateAeded;
+
     private ComboBox comboBox_EmpID,comboBox_BookID,comboBox_Activity;
-    private TableView<ManagesBook>table_Managerbook;
-    private TableColumn<ManagesBook, String>column_EmpID, column_BookID, column_DateAedded,colum_Activity;
+
+    private TableView<ManagesBook> table_Managerbook;
+    private TableColumn<ManagesBook, String> column_EmpID, column_BookID, colum_Activity;
+    private TableColumn<ManagesBook, Date>column_DateAedded;
+
     private JFXButton btn_Insert, btn_Update, btn_Clean, btn_Refesh, btn_Search,btn_ShowAll;
     private Label label_EmpID, label_BookID,label_Activity,label_DateAeded;
     private TextField field_Search;
+
     /*==================call class, controller, serrvice===============*/
     DepartService departService = new DepartService();
     ManagerBooks_service manaService = new ManagerBooks_service();
@@ -406,7 +413,7 @@ public class managerbooks extends Application {
 
     //method load combobox
     public void setComboBox_Activity(){
-        ObservableList<String> loadCombobox = FXCollections.observableArrayList("Available", "Borrowed", "Overdue", "Lost", "Damanged"," Withdrawn");
+        ObservableList<String> loadCombobox = FXCollections.observableArrayList("Available", "Borrowed", "Overdue", "Lost", "Damaged"," Withdrawn");
         comboBox_Activity.setPromptText("choose Activity");
         comboBox_Activity.setItems(loadCombobox);
     }
@@ -445,7 +452,7 @@ public class managerbooks extends Application {
                 }else if(slect.equals("Lost")){
                     comboBox_Activity.setValue("Lost");
                 }else if(slect.equals("Damanged")){
-                    comboBox_Activity.setValue("Damanged");
+                    comboBox_Activity.setValue("Damaged");
                 }else if(slect.equals("Withdrawn")){
                     comboBox_Activity.setValue("Withdrawn");
                 }
@@ -458,20 +465,20 @@ public class managerbooks extends Application {
         list = manaService.getAllmanagerbook();
         column_EmpID.setCellValueFactory(new PropertyValueFactory<>("EmpID"));
         column_BookID.setCellValueFactory(new PropertyValueFactory<>("BookID"));
-        column_DateAedded.setCellValueFactory(new PropertyValueFactory<>("DateAdded"));
+        column_DateAedded.setCellValueFactory(new PropertyValueFactory<>("dateAdd"));
         colum_Activity.setCellValueFactory(new PropertyValueFactory<>("Activity"));
     }
     //------------method Refesh and clean------------
-    
+
 
     // method insert
     public void handleInsert(){
         try {
             if (
                     comboBox_EmpID.getValue() == null
-                    ||comboBox_BookID.getValue() == null
-                    ||datePicker_DateAeded.getValue() == null
-                    || comboBox_Activity.getValue() == null) {
+                            ||comboBox_BookID.getValue() == null
+                            ||datePicker_DateAeded.getValue() == null
+                            || comboBox_Activity.getValue() == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error!");
                 // pt headerText (null) loại bỏ đi tiêu đề mặc định của hộp thoại
@@ -492,9 +499,9 @@ public class managerbooks extends Application {
 
                 String select2 = (String) comboBox_Activity.getValue();
                 managerBooks.setEmpID(select2);
-                
-                managerbooks.Insert_ManagerBook(managerBooks);
-                
+
+                ManageBooks.Insert_ManagerBook(managerBooks);
+
                 // tạo thông báo là đã insert thành công
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
@@ -542,7 +549,7 @@ public class managerbooks extends Application {
                 managerBooks.setEmpID(select2);
 
                 managerBooksService.Update(managerBooks);
-                
+
                 // tạo thông báo là đã insert thành công
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
@@ -605,3 +612,4 @@ public class managerbooks extends Application {
 
 //end
 }
+

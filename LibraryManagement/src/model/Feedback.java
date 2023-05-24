@@ -1,6 +1,5 @@
 package model;
 
-import java.security.KeyStore;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -13,14 +12,21 @@ public class Feedback {
     private LocalTime sendingTime;
     private String statusFeed;
 
-    public Feedback(String feedID, List<Reader> readerList, String typeOfFeed, String contentOfFeed,
-                    String contentDetailsOfFeed, LocalTime sendingTime, String statusFeed) {
+    public Feedback() {
         this.feedID = feedID;
-        this.readerList = readerList;
         this.typeOfFeed = typeOfFeed;
         this.contentOfFeed = contentOfFeed;
         this.contentDetailsOfFeed = contentDetailsOfFeed;
         this.sendingTime = sendingTime;
+        this.statusFeed = statusFeed;
+    }
+
+    public Feedback(String id, String type, String content, String details, LocalTime time, String statusFeed){
+        this.feedID = id;
+        this.typeOfFeed = type;
+        this.contentOfFeed = details;
+        this.contentDetailsOfFeed = details;
+        this.sendingTime = time;
         this.statusFeed = statusFeed;
     }
 
