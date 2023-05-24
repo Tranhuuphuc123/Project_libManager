@@ -11,6 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d677a4df-4e79-4f92-81a8-8730cd95f5f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DepartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DepartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/EmpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/JDBCutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/JDBCutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ManagesBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ManagesBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DepartmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DepartmentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/EmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EmployeePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,19 +107,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeePage (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.EmployeePage" />
-      <module name="Quanlythuvien_Version02" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EmployeePage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.EmployeePage" />
       <module name="Quanlythuvien_Version02" />
@@ -140,13 +133,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="managerbooks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.managerbooks" />
+      <module name="Quanlythuvien_Version02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ProgramTest" />
+        <item itemvalue="Application.managerbooks" />
+        <item itemvalue="Application.EmployeePage" />
         <item itemvalue="Application.DepartmentPage" />
         <item itemvalue="Application.DepartmentPage (1)" />
-        <item itemvalue="Application.EmployeePage" />
-        <item itemvalue="Application.EmployeePage (1)" />
       </list>
     </recent_temporary>
   </component>

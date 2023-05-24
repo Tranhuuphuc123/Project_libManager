@@ -10,6 +10,7 @@ public class ManagesBook {
 
 
     //contructor
+    public ManagesBook(){}
 
     public ManagesBook(String empID, String bookID, Date dateAdd, String activity) {
         this.empID = empID;

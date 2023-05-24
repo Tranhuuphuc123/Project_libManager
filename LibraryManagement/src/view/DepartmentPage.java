@@ -24,6 +24,7 @@ import model.Department;
 
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.List;
 
 public class DepartmentPage extends Application {
     private BorderPane root;
@@ -40,23 +41,22 @@ public class DepartmentPage extends Application {
     private Image img;
 
 
-   /*==================call class, controller, serrvice===============*/
-    DepartService departService = new DepartService();
-    Department depart = new Department();
 
     public static void main(String[] args) {
         launch(args);
     }
+    /*==================call class, controller, serrvice===============*/
+    DepartService departService = new DepartService();
+    Department depart = new Department();
+
 
     @Override
     public void start(Stage primaryStage) {
             Depart_View();
-            //combobox_Status
             setCombobox_Status();
-            //showw data
-            showAllDepart();
-            //selectItem_
             selectItem_Depart();
+            showDepartment();
+            showAllDepart();
 
     }
 
@@ -208,14 +208,24 @@ public class DepartmentPage extends Application {
         //create scence and show stage
         Scene scene = new Scene(root,850,500);
         stage.setScene(scene);
-        stage.setTitle("Employee Page");
+        stage.setTitle("DepartmentPage");
         stage.show();
 
         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
        /*==============action event method=======================*/
-       //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        //Actiont event Clean
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>Action event for Employee_View*<<<<<<<<<<<<<<<<<<*/
+        //===================================================================
+
+        //Actiont event btn_ShowAll
+        btn_ShowAll.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                handleShowAll();
+            }
+        });
+
+        //action event btn_Clean
         btn_Clean.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -223,7 +233,7 @@ public class DepartmentPage extends Application {
             }
         });
 
-        //Actione event button refesh
+        //Action event btn_Refesh
         btn_Refesh.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -231,6 +241,33 @@ public class DepartmentPage extends Application {
             }
         });
 
+
+        //set actiont event btn_Insert
+        btn_Insert.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleInsert();
+            }
+        });
+
+
+        // set Update
+        btn_Update.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleUpdate();
+            }
+        });
+
+
+
+        // set search
+        btn_Search.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleSearch();
+            }
+        });
      //end method DepartView
     }
 
@@ -322,7 +359,6 @@ public class DepartmentPage extends Application {
     ObservableList<Department> listdepart;
     public void showAllDepart(){
         listdepart = departService.getAllDepart();
-
         column_DepID.setCellValueFactory(new PropertyValueFactory<>("depID"));
         column_DepName.setCellValueFactory(new PropertyValueFactory<>("depName"));
         column_DepStatus.setCellValueFactory(new PropertyValueFactory<>("depStatus"));
@@ -336,11 +372,9 @@ public class DepartmentPage extends Application {
         table_Derpart.setOnMouseClicked(event->{
             //texxt user has choose row on table or no?
             if(event.getClickCount()==1){
-                depart = table_Derpart.getSelectionModel().getSelectedItem();
-
+                Department depart = table_Derpart.getSelectionModel().getSelectedItem();
                 field_DepID.setText(depart.getDepID());
                 field_DepName.setText(depart.getDepName());
-
                 //select combobox
                 String slect = String.valueOf(depart.getDepStatus());
                 if(slect.equals("Active")){
@@ -357,7 +391,118 @@ public class DepartmentPage extends Application {
             }
         });
     }
+    //---------------------------method load data ontbale------------------------------
 
+    public void showDepartment(){
+        listdepart = departService.getAllDepartment_condition();
+        column_DepID.setCellValueFactory(new PropertyValueFactory<>("depID"));
+        column_DepName.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        column_DepStatus.setCellValueFactory(new PropertyValueFactory<>("depStatus"));
+    }
+
+    //---------------method handleShowAll for btn_showAll
+    public void handleShowAll(){
+        listdepart = departService.getAllDepart();
+        column_DepID.setCellValueFactory(new PropertyValueFactory<>("depID"));
+        column_DepName.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        column_DepStatus.setCellValueFactory(new PropertyValueFactory<>("depStatus"));
+       table_Derpart.setItems(listdepart);
+    }
+    //------------method Refesh and clean------------
+
+    // method insert
+    public void handleInsert(){
+        try {
+            if (
+                    field_DepID.getText().isEmpty()
+                            || field_DepName.getText().isEmpty()
+                            || combobox_status.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                // pt headerText (null) loại bỏ đi tiêu đề mặc định của hộp thoại
+                alert.setHeaderText(null);
+                alert.setContentText("Please don't leave it blank!");
+                // showAndwait dùng để hiển thị v chờ người dùng phàn hồi lỗi
+                alert.showAndWait();
+            } else{
+
+                depart.setDepID(field_DepID.getText());
+                depart.setDepName(field_DepName.getText());
+                String select1 = (String) combobox_status.getValue();
+                depart.setDepStatus(select1);
+
+                departService.Insert_Department(depart);
+                // tạo thông báo là đã insert thành công
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Success");
+                alert.setContentText("You have successfully added!");
+                alert.showAndWait();
+
+                // khi inssert xong thì tiến hành clear thông tin vừa nhập và show lên tablevie từ hai method đã viết trc đó
+                Clean_Depart();
+                showDepartment();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+//end
+    }
+    //method update
+    public void handleUpdate(){
+        try{
+            if (table_Derpart.getSelectionModel().getSelectedCells()==null){
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                alert.setHeaderText(null);
+                alert.setContentText("Please select the line to update");
+                alert.showAndWait();
+            }else {
+                depart.setDepID(field_DepID.getText());
+                depart.setDepName(field_DepName.getText());
+                String select1 = (String) combobox_status.getValue();
+                depart.setDepStatus(select1);
+                departService.Update_Department(depart);
+                // tạo thông báo là đã insert thành công
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Success");
+                alert.setContentText("You have successfully added!");
+                alert.showAndWait();
+
+                // khi inssert xong thì tiến hành clear thông tin vừa nhập và show lên tablevie từ hai method đã viết trc đó
+                Clean_Depart();
+                showDepartment();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }//end
+    }
+
+
+
+
+
+    // method handleSearch
+    public void handleSearch(){
+        try{
+            String maSearch = field_Search.getText();
+            listdepart = departService.Search_Department(maSearch);
+            if (listdepart != null && !listdepart.isEmpty()) {
+                ObservableList<Department> data = FXCollections.observableArrayList(listdepart);
+                table_Derpart.setItems(data);
+            } else if(listdepart.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter your search text!");
+                alert.showAndWait();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     //method Clean
     public void Clean_Depart(){

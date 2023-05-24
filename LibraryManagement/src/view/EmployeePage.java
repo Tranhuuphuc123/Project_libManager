@@ -2,6 +2,7 @@ package view;
 
 import com.jfoenix.controls.JFXButton;
 import data.EmpService;
+import data.AdminService;
 import javafx.application.Application;
 import javafx.beans.DefaultProperty;
 import javafx.collections.FXCollections;
@@ -24,12 +25,18 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Employee;
+import model.Reader;
+import model.getData;
 
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import static controller.AdminController.isValidAddress;
+import static controller.AdminController.isValidPassword;
 
 /*page Employee in Pand Adminpane*/
 public class EmployeePage extends Application {
@@ -41,7 +48,7 @@ public class EmployeePage extends Application {
             column_EmpPass, colummn_EmpBarCode, column_EmpStatus,column_Gender;
     private TableColumn<Employee, Date>column_Birth;
     private TextField field_EmpID, field_EmpName, field_EmpPhone, field_EmpGender, field_EmpAdrress, field_EmpPos, field_EmpSal,field_EmpBarCode, field_Search;
-    private Label label_EmpID, label_EmpName,label_EmpPhone,label_Gender, label_Address,label_EmpPass,label_EmpSal, label_EmCode, label_Search, label_DepID,label_Pos,label_Status,label_Birth;
+    private Label label_EmpID, label_EmpName,label_EmpPhone,label_Gender, label_Address,label_EmpPass,label_EmpSal, label_EmCode, label_DepID,label_Pos,label_Status,label_Birth;
     private Label title;
     private PasswordField pass_EmpPass;
     private DatePicker datePicker_Birth;
@@ -52,14 +59,16 @@ public class EmployeePage extends Application {
     private GridPane gridPane_left;
     private BorderPane root;
 
-/*=============================================================================================*/
-/*main view */
+    /*=============================================================================================*/
+    /*main view */
     public static void main(String[] args) {
         launch(args);
     }
 
     //khai báo các class
     EmpService empService = new EmpService();
+    Employee   employee = new Employee();
+    AdminService adminService = new AdminService();
 
     @Override
     public void start(Stage primaryStage) {
@@ -75,9 +84,9 @@ public class EmployeePage extends Application {
         selectiTem_Emp();
 
     }
-/*end main view*/
+    /*end main view*/
 
-/*===============================================================================================*/
+    /*===============================================================================================*/
     public void Employee_View(){
         //Create a logo
         Stage stage = new Stage();
@@ -86,7 +95,7 @@ public class EmployeePage extends Application {
         stage.getIcons().add(icon);
 
 //-----------------------------------------------------------------------------------
-    /* set vboxLeft*/
+        /* set vboxLeft*/
         vboxLeft = new VBox();
         vboxLeft.setPrefWidth(290);
         vboxLeft.setPadding(new Insets(5));
@@ -123,10 +132,10 @@ public class EmployeePage extends Application {
         imgView = new ImageView();
         combobox_Status = new ComboBox();
 
-     /*add all control at row and clolumn*/
-       //image set
-       HBox box_Img = new HBox(4);
-       box_Img.getChildren().add(EmpImage_View());
+        /*add all control at row and clolumn*/
+        //image set
+        HBox box_Img = new HBox(4);
+        box_Img.getChildren().add(EmpImage_View());
 
         //set layout Gritgrand(same gridLayout)
         gridPane_left = new GridPane();
@@ -193,12 +202,12 @@ public class EmployeePage extends Application {
         combobox_Status.setPrefWidth(170);
         combobox_Status.setScaleY(0.65);
 
-         //add gridpane_left and Hbox on vboxLeft
-         vboxLeft.getChildren().addAll(box_Img, gridPane_left);
+        //add gridpane_left and Hbox on vboxLeft
+        vboxLeft.getChildren().addAll(box_Img, gridPane_left);
 
 
-      //-------------------------------------------------------
-    /* Create the vboxRight*/
+        //-------------------------------------------------------
+        /* Create the vboxRight*/
         vboxRight = new VBox(); // Add this line to initialize vboxRight
 //      vboxRight.setPrefWidth(500);
         vboxRight.setPadding(new Insets(5));
@@ -236,8 +245,8 @@ public class EmployeePage extends Application {
         vbox_table.setPadding(new Insets(0));
 
         table_EMployee.getColumns().addAll(column_EmpID,column_EmpName,column_EmpPhone,column_Birth
-        ,column_Gender,column_Adrress,column_depID,column_EmpPos,column_EmpSalary,column_EmpPass
-        ,colummn_EmpBarCode,column_EmpStatus);
+                ,column_Gender,column_Adrress,column_depID,column_EmpPos,column_EmpSalary,column_EmpPass
+                ,colummn_EmpBarCode,column_EmpStatus);
 
         //add table vao vbox_Table
         ScrollPane scrollPane = new ScrollPane(table_EMployee);
@@ -255,7 +264,7 @@ public class EmployeePage extends Application {
         //btn_searh, and btn_Refesh
         ButtonBar box_Refesh_Search = new ButtonBar();
         vboxRight.setMargin(box_Refesh_Search, new Insets(5,5,10,0));
-        TextField field_Search = new TextField();
+        field_Search = new TextField();
         field_Search.setPrefWidth(150);
 
         btn_Search = new JFXButton("Search");
@@ -290,7 +299,7 @@ public class EmployeePage extends Application {
         btn_Update = new JFXButton("Updates");
         btn_Clean = new JFXButton("Clean");
 
-    /*set icon,color... for Alls button*/
+        /*set icon,color... for Alls button*/
         btn_Inssert.setGraphic(img_btnInsert());
         //add css
         btn_Inssert.getStylesheets().add(getClass().getResource("/css/Emp.css").toExternalForm());
@@ -313,7 +322,7 @@ public class EmployeePage extends Application {
         //add vboxRight
         vboxRight.getChildren().addAll(vbox_table,box_button);
 
- //-----------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------
         /*runtime for javaFX Application*/
         root = new BorderPane();
         //thiết lập khoảng cách margin cho vboxRight cách vboxLeft là 10px bền lề trái tính qua;
@@ -329,11 +338,11 @@ public class EmployeePage extends Application {
         stage.show();
 
 
-  //===================================================================
-  /*>>>>>>>>>>>>>>>>>>>>>>>>>>>Action event for Employee_View*<<<<<<<<<<<<<<<<<<*/
-  //===================================================================
+        //===================================================================
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>Action event for Employee_View*<<<<<<<<<<<<<<<<<<*/
+        //===================================================================
 
-     //Actiont event btn_ShowAll
+        //Actiont event btn_ShowAll
         btn_ShowAll.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -341,7 +350,7 @@ public class EmployeePage extends Application {
             }
         });
 
-      //action event btn_Clean
+        //action event btn_Clean
         btn_Clean.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -349,25 +358,52 @@ public class EmployeePage extends Application {
             }
         });
 
-     //Action event btn_Refesh
-     btn_Refresh.setOnAction(new EventHandler<ActionEvent>() {
-         @Override
-         public void handle(ActionEvent event) {
-             Refesh_Emp();
-         }
-     });
-
-     //actiont Mouseclicke fot table_Employee
+        //Action event btn_Refesh
+        btn_Refresh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Refesh_Emp();
+            }
+        });
 
 
+        //set actiont event btn_Insert
+        btn_Inssert.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleInsert();
+            }
+        });
 
-    //end method Employee_View
+
+        // set Update
+        btn_Update.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleUpdate();
+            }
+        });
+
+
+
+        // set search
+        btn_Search.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleSearch();
+            }
+        });
+        //actiont Mouseclicke fot table_Employee
+
+
+
+        //end method Employee_View
     }
 
 
 
-/*=======================================================method event Icon, Image=============================================*/
- /*setup ImageView*/
+    /*=======================================================method event Icon, Image=============================================*/
+    /*setup ImageView*/
     public ImageView EmpImage_View(){
         input = getClass().getResourceAsStream("/icon/ReaderUI/logo4.png");
         img = new Image(input);
@@ -390,16 +426,16 @@ public class EmployeePage extends Application {
         return imgView_Insert;
     }
     //set load ImageView for btn_Update
-     public ImageView img_btnUpdate(){
+    public ImageView img_btnUpdate(){
         input = getClass().getResourceAsStream("/icon/update.png");
         img = new Image(input);
         imgView_Update = new ImageView(img);
         //set Size
-         imgView_Update.setFitWidth(26);
-         imgView_Update.setFitHeight(26);
-         return imgView_Update;
-     }
-     //set load ImgeView for btn_Clean
+        imgView_Update.setFitWidth(26);
+        imgView_Update.setFitHeight(26);
+        return imgView_Update;
+    }
+    //set load ImgeView for btn_Clean
     public ImageView img_btnClean(){
         input = getClass().getResourceAsStream("/icon/clean.png");
         img = new Image(input);
@@ -441,7 +477,7 @@ public class EmployeePage extends Application {
     }
 
 
-/*========================================================setCombobox=================================================================*/
+    /*========================================================setCombobox=================================================================*/
 
     //method laodcombobox
     public void setcombobox_DepID(){
@@ -466,7 +502,7 @@ public class EmployeePage extends Application {
     }
 
 
-//------------------------------------method datepicker------------------------------------------------------
+    //------------------------------------method datepicker------------------------------------------------------
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     //method datpicker
     public void setdate_Picker(){
@@ -496,7 +532,7 @@ public class EmployeePage extends Application {
 
     }
 
-//---------------------------method load data ontbale------------------------------
+    //---------------------------method load data ontbale------------------------------
     ObservableList<Employee> listEmployee;
     public void showEmployee(){
         listEmployee = empService.getAllEmployee_condition();
@@ -517,28 +553,28 @@ public class EmployeePage extends Application {
     }
 
 
-   //---------------method handleShowAll for btn_showAll
-   public void handleShowAll(){
-       listEmployee = empService.getAllEmployee();
+    //---------------method handleShowAll for btn_showAll
+    public void handleShowAll(){
+        listEmployee = empService.getAllEmployee();
 
-       column_EmpID.setCellValueFactory(new PropertyValueFactory<>("empID"));
-       column_EmpName.setCellValueFactory(new PropertyValueFactory<>("empName"));
-       column_EmpPhone.setCellValueFactory(new PropertyValueFactory<>("empPhone"));
-       column_Birth.setCellValueFactory(new PropertyValueFactory<>("birthDay"));
-       column_Gender.setCellValueFactory(new PropertyValueFactory<>("empGender"));
-       column_Adrress.setCellValueFactory(new PropertyValueFactory<>("empAddress"));
-       column_depID.setCellValueFactory(new PropertyValueFactory<>("depID"));
-       column_EmpPos.setCellValueFactory(new PropertyValueFactory<>("empPosition"));
-       column_EmpSalary.setCellValueFactory(new PropertyValueFactory<>("empSalary"));
-       column_EmpPass.setCellValueFactory(new PropertyValueFactory<>("empPass"));
-       colummn_EmpBarCode.setCellValueFactory(new PropertyValueFactory<>("empBarcode"));
-       column_EmpStatus.setCellValueFactory(new PropertyValueFactory<>("empStatus"));
+        column_EmpID.setCellValueFactory(new PropertyValueFactory<>("empID"));
+        column_EmpName.setCellValueFactory(new PropertyValueFactory<>("empName"));
+        column_EmpPhone.setCellValueFactory(new PropertyValueFactory<>("empPhone"));
+        column_Birth.setCellValueFactory(new PropertyValueFactory<>("birthDay"));
+        column_Gender.setCellValueFactory(new PropertyValueFactory<>("empGender"));
+        column_Adrress.setCellValueFactory(new PropertyValueFactory<>("empAddress"));
+        column_depID.setCellValueFactory(new PropertyValueFactory<>("depID"));
+        column_EmpPos.setCellValueFactory(new PropertyValueFactory<>("empPosition"));
+        column_EmpSalary.setCellValueFactory(new PropertyValueFactory<>("empSalary"));
+        column_EmpPass.setCellValueFactory(new PropertyValueFactory<>("empPass"));
+        colummn_EmpBarCode.setCellValueFactory(new PropertyValueFactory<>("empBarcode"));
+        column_EmpStatus.setCellValueFactory(new PropertyValueFactory<>("empStatus"));
 
-       table_EMployee.setItems(listEmployee);
-   }
+        table_EMployee.setItems(listEmployee);
+    }
 
 
-   //------------method Refesh and clean------------
+    //------------method Refesh and clean------------
     public void Clean_Emp(){
         field_EmpID.setText("");
         field_EmpName.setText("");
@@ -561,8 +597,8 @@ public class EmployeePage extends Application {
         showEmployee();
     }
 
-  //-------------method selectItem---------------
-  public void selectiTem_Emp(){
+    //-------------method selectItem---------------
+    public void selectiTem_Emp(){
         table_EMployee.setOnMouseClicked(event ->{
             //texxt xem usser has choose row on table
             if(event.getClickCount()==1){
@@ -572,7 +608,7 @@ public class EmployeePage extends Application {
                 field_EmpID.setText(employee.getEmpID());
                 field_EmpName.setText(employee.getEmpName());
                 field_EmpPhone.setText(employee.getEmpPhone());
-                 //set datepicker
+                //set datepicker
                 String dateBirth = String.valueOf(employee.getBirthDay());
                 LocalDate local = LocalDate.parse(dateBirth);
                 datePicker_Birth.setValue(local);
@@ -624,7 +660,283 @@ public class EmployeePage extends Application {
                 }
             }
         } );
-  }
+    }
 
-   /*end program*/
+
+
+    // method insert
+    public void handleInsert(){
+        try {
+            if (
+                    field_EmpID.getText().isEmpty()
+                            || field_EmpName.getText().isEmpty()
+                            || field_EmpPhone.getText().isEmpty()
+                            || datePicker_Birth.getValue() == null
+                            || combobox_Gender.getValue() == null
+                            || field_EmpAdrress.getText().isEmpty()
+                            || combobox_DepID.getValue() == null
+                            || field_EmpPos.getText().isEmpty()
+                            || field_EmpSal.getText().isEmpty()
+                            || pass_EmpPass.getText().isEmpty()
+                            || field_EmpBarCode.getText().isEmpty()
+                            || combobox_Status.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                // pt headerText (null) loại bỏ đi tiêu đề mặc định của hộp thoại
+                alert.setHeaderText(null);
+                alert.setContentText("Please don't leave it blank!");
+                // showAndwait dùng để hiển thị v chờ người dùng phàn hồi lỗi
+                alert.showAndWait();
+            } else {
+                employee.setEmpID(field_EmpID.getText());
+                employee.setEmpName(field_EmpName.getText());
+                //phone
+                String phonePattern = "\\d{10}"; // chuỗi số điện thoại phải có đúng 10 chữ số
+                String phone = field_EmpPhone.getText();
+                if (!phone.matches(phonePattern)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Invalid phone number. Please enter all 10 numbers!");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpPhone(field_EmpPhone.getText());
+                }
+
+                //date picker birthdate
+                LocalDate local = datePicker_Birth.getValue();
+                java.sql.Date dateBirth = java.sql.Date.valueOf(local);
+                employee.setBirthDay(dateBirth);
+
+                //combobox Gender
+                String select = (String) combobox_Gender.getValue();
+                employee.setEmpGender(select);
+
+
+                //address
+                if (!isValidAddress(field_EmpAdrress.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("wrong address, need to enter enough: street name, ward/commune, district/district, province/city!");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpAddress(field_EmpAdrress.getText());
+                }
+
+                //combobox depId
+                String select2 = (String) combobox_DepID.getValue();
+                employee.setDepID(select2);
+
+                employee.setEmpPosition(field_EmpPos.getText());
+                employee.setEmpSalary(field_EmpSal.getText());
+
+                //pass
+                if (!isValidPassword(pass_EmpPass.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Password must be at least 6-10 characters, have lowercase letters, and at least 1 special character");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpPass(pass_EmpPass.getText());
+                }
+
+                employee.setEmpBarcode(field_EmpBarCode.getText());
+
+                //sưt image
+                String uri = getData.path;
+                employee.setEmpImg(uri);
+
+                //combobox Status
+                String select1 = (String) combobox_Status.getValue();
+                employee.setEmpStatus(select1);
+
+                empService.Insert_Employee(employee);
+
+                // tạo thông báo là đã insert thành công
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Success");
+                alert.setContentText("You have successfully added!");
+                alert.showAndWait();
+
+                // khi inssert xong thì tiến hành clear thông tin vừa nhập và show lên tablevie từ hai method đã viết trc đó
+                Clean_Emp();
+                showEmployee();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+//end
+    }
+
+
+
+
+    //method update
+    public void handleUpdate(){
+        try{
+            if (table_EMployee.getSelectionModel().getSelectedCells()==null){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                alert.setHeaderText(null);
+                alert.setContentText("Please select the line to update");
+                alert.showAndWait();
+            }else {
+                employee.setEmpID(field_EmpID.getText());
+                employee.setEmpName(field_EmpName.getText());
+
+                //phone
+                String phonePattern = "\\d{10}"; // chuỗi số điện thoại phải có đúng 10 chữ số
+                String phone = field_EmpPhone.getText();
+                if (!phone.matches(phonePattern)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Invalid phone number. Please enter all 10 numbers!");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpPhone(field_EmpPhone.getText());
+                }
+
+                //date picker birthdate
+                LocalDate local = datePicker_Birth.getValue();
+                java.sql.Date dateBirth = java.sql.Date.valueOf(local);
+                employee.setBirthDay(dateBirth);
+
+                //combobox Gender
+                String select = (String) combobox_Gender.getValue();
+                employee.setEmpGender(select);
+
+
+                //address
+                if (!isValidAddress(field_EmpAdrress.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("wrong address, need to enter enough: street name, ward/commune, district/district, province/city!");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpAddress(field_EmpAdrress.getText());
+                }
+
+                //combobox depId
+                String select2 = (String) combobox_DepID.getValue();
+                employee.setDepID(select2);
+
+                employee.setEmpPosition(field_EmpPos.getText());
+                employee.setEmpSalary(field_EmpSal.getText());
+
+                //pass
+                if (!isValidPassword(pass_EmpPass.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Password must be at least 6-10 characters, have lowercase letters, and at least 1 special character");
+                    alert.showAndWait();
+                    return;
+                } else {
+                    employee.setEmpPass(pass_EmpPass.getText());
+                }
+
+                employee.setEmpBarcode(field_EmpBarCode.getText());
+
+                //sưt image
+               /* String uri = getData.path;
+                employee.setEmpImg(uri);
+*/
+                //combobox Status
+                String select1 = (String) combobox_Status.getValue();
+                employee.setEmpStatus(select1);
+
+                empService.Update_Employee(employee);
+
+                // tạo thông báo là đã insert thành công
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Success");
+                alert.setContentText("You have successfully added!");
+                alert.showAndWait();
+
+                // khi inssert xong thì tiến hành clear thông tin vừa nhập và show lên tablevie từ hai method đã viết trc đó
+                Clean_Emp();
+                showEmployee();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }//end
+    }
+
+
+
+
+
+    // method handleSearch
+    public void handleSearch(){
+        try{
+            String maSearch = field_Search.getText();
+            listEmployee = empService.Search_Employee(maSearch);
+            if (listEmployee != null && !listEmployee.isEmpty()) {
+                ObservableList<Employee> data = FXCollections.observableArrayList(listEmployee);
+                table_EMployee.setItems(data);
+            } else if(listEmployee.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter your search text!");
+                alert.showAndWait();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+    //method alert: wrong Address
+    public static boolean isValidAddress(String address) {
+        String[] addressParts = address.split(",");
+        if (addressParts.length <4) {
+            return false;
+        }
+        String street = addressParts[0].trim();
+        String ward = addressParts[1].trim();
+        String district = addressParts[2].trim();
+        String city = addressParts[3].trim();
+        if (street.isEmpty() || ward.isEmpty() || district.isEmpty() ||  city.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+    // kiểm tra field pass có đủ ký tự in thường, in hoa và ký tự đặt biệt (@,#) hay không
+    public static boolean isValidPassword(String password) {
+        // kiểm tra độ dài của password có từ 8 đến 20 ký tự
+        if (password.length() < 6 || password.length() > 10) {
+            return false;
+        }
+        // kiểm tra password có chứa ký tự in thường
+        if (!password.matches(".*[a-z].*")) {
+            return false;
+        }
+        // kiểm tra password có chứa ký tự in hoa
+        if (!password.matches(".*[A-Z].*")) {
+            return false;
+        }
+        // kiểm tra password có chứa ký tự đặt biệt (@,#)
+        if (!password.matches(".*[@#].*")) {
+            return false;
+        }
+        return true;
+    }
+
+    /*end program*/
 }
